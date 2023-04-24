@@ -1,10 +1,12 @@
-package com.example.a4party;
+package com.example.a4party.SplashScreen;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.a4party.IntefaceAPP.HOME_ACTIVITY;
+import com.example.a4party.R;
 
 public class MainActivity extends AppCompatActivity {
 

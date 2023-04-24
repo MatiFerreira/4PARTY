@@ -1,4 +1,4 @@
-package com.example.a4party;
+package com.example.a4party.IntefaceAPP;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.a4party.Fragment.OrderFragments;
 import com.example.a4party.Fragment.PartySearchFragment;
 import com.example.a4party.Fragment.ProfileFragment;
+import com.example.a4party.R;
 import com.example.a4party.databinding.ActivityHomeBinding;
 
 public class HOME_ACTIVITY extends AppCompatActivity {

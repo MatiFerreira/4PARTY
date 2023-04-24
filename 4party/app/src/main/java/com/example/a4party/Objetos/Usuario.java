@@ -1,4 +1,4 @@
-package com.example.a4party;
+package com.example.a4party.Objetos;
 
 public class Usuario {
 
