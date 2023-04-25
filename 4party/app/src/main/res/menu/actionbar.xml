@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+            android:title="4PARTY"
+            android:id="@+id/partyitem"
+            android:icon="@drawable/partyicon"/>
+    <item
+            android:title="ORDER"
+            android:id="@+id/homeitem"
+            android:icon="@drawable/carritocompraicon"/>
+    <item
+            android:title="PROFILE"
+            android:id="@+id/profileitem"
+            android:icon="@drawable/profileicon"/>
+</menu>
