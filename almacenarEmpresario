@@ -1,0 +1,6 @@
+//metodo para insertar un nuevo empresario
+    public void almacenarEmpresario (String nombre,String apellido, String DNI, String calle,String email,String contrasenia,String nombreEstablecimiento){
+        instanciarDatabase();
+        Empresarios empresarios = new Emperesarios(nombre,apellido,DNI,calle,email,contrasenia,nombreEstablecimiento);
+        databaseReference.child ("empresarios").child (DNI).setValue(empresarios);
+    }
