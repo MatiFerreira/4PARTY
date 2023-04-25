@@ -1,0 +1,106 @@
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+    }
+
+    public class empresas {
+
+        private String DNI;
+        private String nombre;
+        private String apellido;
+        private String email;
+        private String contrasenia;
+        private String calle;
+        private String CP;
+        private String nombreEstablecimiento;
+
+        public empresas() {
+            // Default constructor required for calls to DataSnapshot.getValue(User.class)
+        }
+
+        public empresas(String nombre,String apellido, String DNI, String calle,String email,String contrasenia,String nombreEstablecimiento) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.DNI = DNI;
+            this.contrasenia=contrasenia;
+            this.calle = calle;
+            this.email = email;
+            this.CP = CP;
+            this.nombreEstablecimiento = nombreEstablecimiento;
+        }
+
+        public String getDNI() {
+            return DNI;
+        }
+
+        public void setDNI(String DNI) {
+            this.DNI = DNI;
+        }
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+
+        public String getApellido() {
+            return apellido;
+        }
+
+        public void setApellido(String apellido) {
+            this.apellido = apellido;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public String getContrasenia() {
+            return contrasenia;
+        }
+
+        public void setContrasenia(String contrasenia) {
+            this.contrasenia = contrasenia;
+        }
+
+        public String getCalle() {
+            return calle;
+        }
+
+        public void setCalle(String calle) {
+            this.calle = calle;
+        }
+
+        public String getCP() {
+            return CP;
+        }
+
+        public void setCP(String CP) {
+            this.CP = CP;
+        }
+
+        public String getNombreEstablecimiento() {
+            return nombreEstablecimiento;
+        }
+
+        public void setNombreEstablecimiento(String nombreEstablecimiento) {
+            this.nombreEstablecimiento = nombreEstablecimiento;
+        }
+
+    }
