@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".HOME_ACTIVITY">
+        tools:context=".IntefaceAPP.HOME_ACTIVITY">
     <FrameLayout
             android:id="@+id/framelayout"
             android:layout_width="match_parent"

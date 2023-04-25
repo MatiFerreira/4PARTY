@@ -1,6 +1,7 @@
-package com.example.a4party;
+package com.example.a4party.BBDD;
 
 
+import com.example.a4party.Objetos.Usuario;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

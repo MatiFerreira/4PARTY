@@ -1,5 +1,6 @@
-package com.example.a4party;
+package com.example.a4party.LogInOutUser;
 
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,13 +10,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+<<<<<<< HEAD:4party/app/src/main/java/com/example/a4party/Register_activity.java
 
+=======
+import com.example.a4party.BBDD.CRUD;
+import com.example.a4party.R;
+>>>>>>> 8b5ad9a07e312f0904362014cb7955f3c104214d:4party/app/src/main/java/com/example/a4party/LogInOutUser/Register_activity.java
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class Register_activity extends AppCompatActivity {
@@ -26,7 +35,6 @@ public class Register_activity extends AppCompatActivity {
     private String password, password2, name, surname, email, dni;
     private FirebaseAuth firebaseauthor;
     private CRUD crud;
-    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +69,7 @@ public class Register_activity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             //mensaje de exito
 
-                            usuario = new Usuario(name, surname, dni, email, password);
-                            //crud.almacenarUsuario(usuario);
+                            // crud.almacenarUsuario(usuario);
                         } else {
 
                         }
@@ -89,6 +96,11 @@ public class Register_activity extends AppCompatActivity {
     }
 
     private void errorDni() {
-
+        Pattern pattern = Pattern.compile("[0-9]{8},[A-Z]{1}");
+        Matcher matcher = pattern.matcher(dni);
+        if (!matcher.matches()) {
+            Toast.makeText(this, "FORMATO INCORRECTO POR FAVOR 8DIGITOS Y 1 LETRA MAYUSCULA"
+                    , Toast.LENGTH_SHORT).show();
+        }
     }
 }
