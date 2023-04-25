@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:orientation="vertical"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+
+        <TextView
+            android:id="@+id/textView1_loginact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inicio de Sesion"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/mail_loginact"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.904"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/mail_loginact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ingrese el mail"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:inputType="textEmailAddress"
+            app:layout_constraintBottom_toTopOf="@+id/password_loginact"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.853"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/password_loginact"
+            android:layout_width="wrap_content"
+            android:hint="Contraseña"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:background="@color/white"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@+id/botonlogin_loginact"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.886"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/botonlogin_loginact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGIN"
+            app:layout_constraintBottom_toTopOf="@+id/botonregistro_loginact"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.914"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/botonregistro_loginact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NO TENGO CUENTA"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.875"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imageView_loginact"
+            android:layout_width="141dp"
+            android:layout_height="279dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView1_loginact"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo4part"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

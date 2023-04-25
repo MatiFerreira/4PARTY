@@ -10,18 +10,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-<<<<<<< HEAD:4party/app/src/main/java/com/example/a4party/Register_activity.java
-
-=======
 import com.example.a4party.BBDD.CRUD;
 import com.example.a4party.R;
->>>>>>> 8b5ad9a07e312f0904362014cb7955f3c104214d:4party/app/src/main/java/com/example/a4party/LogInOutUser/Register_activity.java
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

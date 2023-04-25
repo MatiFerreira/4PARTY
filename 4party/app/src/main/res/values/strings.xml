@@ -2,4 +2,6 @@
     <string name="app_name">4party</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="invalid_mail">INGRESE UN MAIL VALIDO</string>
+    <string name="invalid_passw">INGRESE UN PASSWORD MAYOR A 6 DIGITOS</string>
 </resources>
