@@ -4,23 +4,31 @@ public class Empresario {
     private String dni;
     private String nombre, apellido;
     private String email;
-    private String contrasenia;
     private String codigoPostal;
     private String nombreEstablecimiento;
+    private boolean isEmpresario;
 
     public Empresario() {
 
     }
 
-    public Empresario(String dni, String nombre, String apellido, String email, String contrasenia, String codigoPostal,
-                      String nombreEstablecimiento) {
+    public Empresario(String dni, String nombre, String apellido, String email, String codigoPostal,
+                      String nombreEstablecimiento, boolean isEmpresario) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-        this.contrasenia = contrasenia;
         this.codigoPostal = codigoPostal;
         this.nombreEstablecimiento = nombreEstablecimiento;
+        this.isEmpresario = isEmpresario;
+    }
+
+    public boolean isEmpresario() {
+        return isEmpresario;
+    }
+
+    public void setEmpresario(boolean empresario) {
+        isEmpresario = empresario;
     }
 
     public String getDni() {
@@ -53,14 +61,6 @@ public class Empresario {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
     }
 
     public String getCodigoPostal() {
