@@ -1,8 +1,5 @@
 package com.example.a4party.LogInOutUser;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +7,16 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.example.a4party.IntefaceAPP.HOME_ACTIVITY;
+import com.example.a4party.LogInOutBusiness.LogInBusiness;
 import com.example.a4party.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,6 +30,8 @@ public class Login_activity extends AppCompatActivity {
     Button botonlogin, botonregistrar;
     EditText et_mail;
     EditText et_pass;
+
+    TextView linkTextView;
     AwesomeValidation awesomeValidationmain;
     FirebaseAuth firebaseAuthmain;
 
@@ -44,13 +48,15 @@ public class Login_activity extends AppCompatActivity {
         botonlogin = findViewById(R.id.botonlogin_loginact);
         botonregistrar = findViewById(R.id.botonregistro_loginact);
 
+        linkTextView = findViewById(R.id.link_textU);
+
         firebaseAuthmain = FirebaseAuth.getInstance();
         FirebaseAuth mauth = FirebaseAuth.getInstance();
         FirebaseUser user = mauth.getCurrentUser();
 
-        if (user != null) {
-            gohome();
-        }
+        //if (user != null) {
+        //    gohome();
+        //}
         awesomeValidationmain = new AwesomeValidation(ValidationStyle.BASIC);
         awesomeValidationmain.addValidation(this, R.id.mail_loginact, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
         awesomeValidationmain.addValidation(this, R.id.password_loginact, ".{6,}", R.string.invalid_passw);
@@ -63,6 +69,14 @@ public class Login_activity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        linkTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goLoginB();
+            }
+        });
+
 
         botonlogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +105,13 @@ public class Login_activity extends AppCompatActivity {
     private void gohome() {
         Intent i = new Intent(this, HOME_ACTIVITY.class);
         i.putExtra("mail", et_mail.getText().toString());
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i);
+        finish();
+    }
+
+    private void goLoginB() {
+        Intent i = new Intent(this, LogInBusiness.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();

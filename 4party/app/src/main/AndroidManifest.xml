@@ -15,7 +15,7 @@
             android:theme="@style/Theme.4party"
             tools:targetApi="31">
         <activity
-                android:name=".LogInOutBusiness.RegisterBusiness"
+                android:name=".LogInOutUser.Login_activity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -28,6 +28,9 @@
                 android:name=".SplashScreen.MainActivity"
                 android:exported="false">
         </activity>
+        <activity android:name=".LogInOutBusiness.RegisterBusiness"></activity>
+        <activity android:name=".LogInOutBusiness.LogInBusiness"></activity>
+        <activity android:name=".LogInOutUser.Register_activity"></activity>
         <activity
                 android:name=".IntefaceAPP.HOME_ACTIVITY"
                 android:exported="false"/>
