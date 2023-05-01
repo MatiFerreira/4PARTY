@@ -27,7 +27,7 @@ public class CRUD {
     public void almacenarEmpresario(String nombre, String apellido, String DNI, String codpostal, String email
             , String contrasenia, String nombreEstablecimiento) {
         instanciarDatabase();
-        Empresario empresario = new Empresario(DNI, nombre, apellido, email, contrasenia, codpostal, nombreEstablecimiento);
+        Empresario empresario = new Empresario(DNI, nombre, apellido, email, codpostal, nombreEstablecimiento, true);
         databaseReference.child("empresas").child(DNI).setValue(empresario);
     }
 
