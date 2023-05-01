@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Login_activity extends AppCompatActivity {
 
-    Button botonlogin,botonregistrar;
+    Button botonlogin, botonregistrar;
     EditText et_mail;
     EditText et_pass;
     AwesomeValidation awesomeValidationmain;
@@ -48,18 +48,18 @@ public class Login_activity extends AppCompatActivity {
         FirebaseAuth mauth = FirebaseAuth.getInstance();
         FirebaseUser user = mauth.getCurrentUser();
 
-        if (user!=null){
+        if (user != null) {
             gohome();
         }
         awesomeValidationmain = new AwesomeValidation(ValidationStyle.BASIC);
-        awesomeValidationmain.addValidation(this,R.id.mail_loginact, Patterns.EMAIL_ADDRESS,R.string.invalid_mail);
-        awesomeValidationmain.addValidation(this,R.id.password_loginact,".{6,}",R.string.invalid_passw);
+        awesomeValidationmain.addValidation(this, R.id.mail_loginact, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
+        awesomeValidationmain.addValidation(this, R.id.password_loginact, ".{6,}", R.string.invalid_passw);
 
 
         botonregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Login_activity.this,Register_activity.class);
+                Intent i = new Intent(Login_activity.this, Register_activity.class);
                 startActivity(i);
             }
         });
@@ -67,17 +67,17 @@ public class Login_activity extends AppCompatActivity {
         botonlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (awesomeValidationmain.validate()){
+                if (awesomeValidationmain.validate()) {
                     String mail = et_mail.getText().toString();
                     String pass = et_pass.getText().toString();
 
-                    firebaseAuthmain.signInWithEmailAndPassword(mail,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    firebaseAuthmain.signInWithEmailAndPassword(mail, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 gohome();
                                 Toast.makeText(Login_activity.this, "Sesion iniciada", Toast.LENGTH_SHORT).show();
-                            }else{
+                            } else {
                                 String errorcode = ((FirebaseAuthException) task.getException()).getErrorCode();
                                 dameToastdeerror(errorcode);
                             }
@@ -90,9 +90,10 @@ public class Login_activity extends AppCompatActivity {
 
     private void gohome() {
         Intent i = new Intent(this, HOME_ACTIVITY.class);
-        i.putExtra("mail",et_mail.getText().toString());
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.putExtra("mail", et_mail.getText().toString());
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
+        finish();
     }
 
     private void dameToastdeerror(String error) {
@@ -129,7 +130,7 @@ public class Login_activity extends AppCompatActivity {
                 break;
 
             case "ERROR_REQUIRES_RECENT_LOGIN":
-                Toast.makeText(Login_activity.this,"Esta operación es sensible y requiere autenticación reciente. Inicie sesión nuevamente antes de volver a intentar esta solicitud.", Toast.LENGTH_LONG).show();
+                Toast.makeText(Login_activity.this, "Esta operación es sensible y requiere autenticación reciente. Inicie sesión nuevamente antes de volver a intentar esta solicitud.", Toast.LENGTH_LONG).show();
                 break;
 
             case "ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL":

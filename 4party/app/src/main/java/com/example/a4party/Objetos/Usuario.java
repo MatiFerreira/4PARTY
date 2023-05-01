@@ -6,15 +6,13 @@ public class Usuario {
     private String apellido;
     private String DNI;
     private String email;
-    private String contrasenia;
 
 
-    public Usuario(String nombre, String apellido, String DNI, String email, String contrasenia) {
+    public Usuario(String nombre, String apellido, String DNI, String email) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.DNI = DNI;
         this.email = email;
-        this.contrasenia = contrasenia;
     }
 
     public Usuario() {
@@ -53,11 +51,4 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
 }
