@@ -16,6 +16,7 @@ import android.widget.EditText;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.example.a4party.BBDD.CRUD;
+import com.example.a4party.LogInOutBusiness.LogInBusiness;
 import com.example.a4party.LogInOutBusiness.RegisterBusiness;
 import com.example.a4party.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -89,8 +90,20 @@ public class Register_activity extends AppCompatActivity {
             }
         });
 
-    }
+        Cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goLoginU();
+            }
+        });
 
+    }
+    private void goLoginU() {
+        Intent i = new Intent(this, Login_activity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i);
+        finish();
+    }
     private void errorCampoVacio() {
         AlertDialog.Builder builder = new AlertDialog.Builder(Register_activity.this);
         builder.setTitle("Error");

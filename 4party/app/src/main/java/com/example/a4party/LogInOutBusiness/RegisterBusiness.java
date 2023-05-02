@@ -1,5 +1,7 @@
 package com.example.a4party.LogInOutBusiness;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.example.a4party.LogInOutUser.Login_activity;
 import com.example.a4party.R;
 
 import java.util.regex.Matcher;
@@ -17,11 +20,12 @@ import java.util.regex.Pattern;
 public class RegisterBusiness extends AppCompatActivity {
 
     private EditText nombre, apellido, contrasenia1, contrasenia2, dni, correo, nameEstablecimiento, codigoPostal;
-    private Button botonRegistrarse;
+    private Button botonRegistrarse, botoncancell;
     AwesomeValidation validadorAwesome;
     private String nombrestr, apellidostr, contrasenia1str, contrasenia2str, dnistr, correostr, nameestablecimientostr,
             codidopostalstr;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,7 @@ public class RegisterBusiness extends AppCompatActivity {
         contrasenia1 = findViewById(R.id.contraseniaAutonomoET);
         contrasenia2 = findViewById(R.id.contrasenia2AutonomoET);
         dni = findViewById(R.id.dniAutonomoET);
+        botoncancell=findViewById(R.id.cancellautonomobutton);
         correo = findViewById(R.id.correoAutonomoET);
         nameEstablecimiento = findViewById(R.id.nameEstablecimientoET);
         codigoPostal = findViewById(R.id.codigoPostalAutonomoET);
@@ -60,6 +65,21 @@ public class RegisterBusiness extends AppCompatActivity {
                 }
             }
         });
+
+        botoncancell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goLoginB();
+            }
+        });
+    }
+
+
+    private void goLoginB() {
+        Intent i = new Intent(this, LogInBusiness.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i);
+        finish();
     }
 
     public boolean isEmptyAll() {
