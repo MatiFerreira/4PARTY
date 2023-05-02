@@ -22,44 +22,44 @@
             android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/mail_loginact"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.482"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.904"
+            app:layout_constraintVertical_bias="0.899"
             tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/mail_loginact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:ems="10"
             android:hint="Ingrese el mail"
-            android:background="@color/white"
-            android:textColor="@color/black"
             android:inputType="textEmailAddress"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/password_loginact"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.853"
+            app:layout_constraintVertical_bias="0.919"
             tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/password_loginact"
             android:layout_width="wrap_content"
-            android:hint="Contraseña"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:textColor="@color/black"
             android:background="@color/white"
+            android:ems="10"
+            android:hint="Contraseña"
             android:inputType="textPassword"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/botonlogin_loginact"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.886"
+            app:layout_constraintVertical_bias="0.905"
             tools:ignore="MissingConstraints" />
 
         <Button
@@ -72,7 +72,7 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.914"
+            app:layout_constraintVertical_bias="0.945"
             tools:ignore="MissingConstraints" />
 
         <Button
@@ -84,7 +84,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.875"
+            app:layout_constraintVertical_bias="0.855"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/link_textU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ir al login bussines"
+            android:textColor="#89A2D3"
+            app:layout_constraintBottom_toTopOf="@+id/botonlogin_loginact"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_loginact"
+            app:layout_constraintVertical_bias="0.39"
             tools:ignore="MissingConstraints" />
 
         <ImageView
@@ -95,6 +108,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/logo4part"
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
