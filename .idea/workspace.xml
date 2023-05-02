@@ -10,16 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd830f40-8832-44e0-8419-d4bbfaf00aca" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/4party/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/LogInOutBusiness/LogInBusiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/LogInOutBusiness/LogInBusiness.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/LogInOutUser/Login_activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/LogInOutUser/Login_activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4party/app/src/main/res/layout/activity_log_in_business.xml" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/res/layout/activity_log_in_business.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4party/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4party/app/src/main/res/layout/fragment_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/LogInOutBusiness/RegisterBusiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/LogInOutBusiness/RegisterBusiness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/LogInOutUser/Register_activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/LogInOutUser/Register_activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4party/app/src/main/res/layout/activity_register_business.xml" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/res/layout/activity_register_business.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +45,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2OxFhoJUkjDQ1XpCtMtDMmEZyna" />
   <component name="ProjectViewState">
