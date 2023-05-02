@@ -12,6 +12,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.example.a4party.BBDD.CRUD;
 import com.example.a4party.LogInOutBusiness.RegisterBusiness;
 import com.example.a4party.R;
@@ -52,8 +55,8 @@ public class Register_activity extends AppCompatActivity {
         dniET = findViewById(R.id.dniEditText);
 
         validadorAwesome = new AwesomeValidation(ValidationStyle.BASIC);
-        validadorAwesome.addValidation(RegisterBusiness.this, R.id.correoAutonomoET, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
-        validadorAwesome.addValidation(RegisterBusiness.this, R.id.contrasenia2AutonomoET, R.id.contraseniaAutonomoET, R.string.invalid_passw);
+        validadorAwesome.addValidation(Register_activity.this, R.id.correoAutonomoET, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
+        validadorAwesome.addValidation(Register_activity.this, R.id.contrasenia2AutonomoET, R.id.contraseniaAutonomoET, R.string.invalid_passw);
         /*=====================================================*/
         Registrarse.setOnClickListener(new View.OnClickListener() {
             @Override
