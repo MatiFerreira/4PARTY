@@ -1,5 +1,6 @@
 package com.example.a4party.LogInOutUser;
 
+import android.content.Intent;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -16,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.annotations.NotNull;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -54,22 +56,25 @@ public class Register_activity extends AppCompatActivity {
                 name = nombreET.getText().toString();
                 surname = apellidoET.getText().toString();
                 dni = dniET.getText().toString();
+                //Si la informacion de registro es correcta entra aqui
+                if (comprobacionContra()) {
+                    //todo sale con exito -->
+                    firebaseauthor.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                //mensaje de exito
+                                mensajeExito();
 
+                                crud.almacenarUsuario(name,surname,dni,email);
+                            } else {
+                                errorCampoVacio();
 
-                //todo sale con exito -->
-                firebaseauthor.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            //mensaje de exito
-
-                            // crud.almacenarUsuario(usuario);
-                        } else {
-
+                            }
                         }
-                    }
+                    });
+                }
 
-                });
             }
         });
 
@@ -97,4 +102,24 @@ public class Register_activity extends AppCompatActivity {
                     , Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void mensajeExito() {
+        Toast.makeText(this, "Registrado Correctamente", Toast.LENGTH_LONG).show();
+        finish();
+    }
+
+
+    private boolean comprobacionContra(){
+        if (!password.equals(password2) || password.isEmpty()) {
+            mensajeerrorContrasenia();
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private void mensajeerrorContrasenia() {
+        Toast.makeText(this, "CONTRASEÑA VACIA O NO COINCIDEN", Toast.LENGTH_LONG).show();
+    }
+
 }
