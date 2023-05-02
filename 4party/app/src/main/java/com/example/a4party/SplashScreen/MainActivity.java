@@ -6,6 +6,7 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.a4party.IntefaceAPP.HOME_ACTIVITY;
+import com.example.a4party.LogInOutUser.Login_activity;
 import com.example.a4party.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, HOME_ACTIVITY.class);
+                Intent intent = new Intent(MainActivity.this, Login_activity.class);
                 startActivity(intent);
                 finish();
             }

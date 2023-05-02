@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools">
-
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
-
     <application
             android:allowBackup="true"
             android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,11 +12,7 @@
             android:theme="@style/Theme.4party"
             tools:targetApi="31">
         <activity
-<<<<<<< HEAD
-                android:name=".LogInOutUser.Register_activity"
-=======
-                android:name=".LogInOutUser.Login_activity"
->>>>>>> 36f801ba27363b31031af5c7723ef4a2e7685368
+                android:name=".SplashScreen.MainActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -27,14 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <activity
-                android:name=".SplashScreen.MainActivity"
-                android:exported="false">
-        </activity>
-        <activity android:name=".LogInOutBusiness.RegisterBusiness"></activity>
-        <activity android:name=".LogInOutBusiness.LogInBusiness"></activity>
-        <activity android:name=".LogInOutUser.Register_activity"></activity>
+        <activity android:name=".LogInOutBusiness.RegisterBusiness"/>
+        <activity android:name=".LogInOutBusiness.LogInBusiness"/>
+        <activity android:name=".LogInOutUser.Register_activity"/>
         <activity
                 android:name=".IntefaceAPP.HOME_ACTIVITY"
                 android:exported="false"/>
