@@ -1,6 +1,7 @@
 package com.example.a4party.LogInOutUser;
 
 import android.content.Intent;
+import android.util.Patterns;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import com.example.a4party.BBDD.CRUD;
+import com.example.a4party.LogInOutBusiness.RegisterBusiness;
 import com.example.a4party.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,6 +32,8 @@ public class Register_activity extends AppCompatActivity {
     private EditText contrasenia1ET, contrasenia2ET, nombreET, apellidoET, emailET, dniET;
     private String password, password2, name, surname, email, dni;
     private FirebaseAuth firebaseauthor;
+
+    AwesomeValidation validadorAwesome;
     private CRUD crud;
 
     @Override
@@ -46,6 +50,10 @@ public class Register_activity extends AppCompatActivity {
         apellidoET = findViewById(R.id.apellidosEditText);
         emailET = findViewById(R.id.correoElectronicoEditText);
         dniET = findViewById(R.id.dniEditText);
+
+        validadorAwesome = new AwesomeValidation(ValidationStyle.BASIC);
+        validadorAwesome.addValidation(RegisterBusiness.this, R.id.correoAutonomoET, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
+        validadorAwesome.addValidation(RegisterBusiness.this, R.id.contrasenia2AutonomoET, R.id.contraseniaAutonomoET, R.string.invalid_passw);
         /*=====================================================*/
         Registrarse.setOnClickListener(new View.OnClickListener() {
             @Override
