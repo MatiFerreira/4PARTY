@@ -1,5 +1,7 @@
 package com.example.a4party.LogInOutUser;
 
+import android.content.Intent;
+import android.util.Patterns;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -14,11 +16,6 @@ import android.widget.EditText;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.example.a4party.BBDD.CRUD;
-<<<<<<< HEAD
-=======
-import com.example.a4party.LogInOutBusiness.LogInBusiness;
-import com.example.a4party.LogInOutBusiness.RegisterBusiness;
->>>>>>> 3f399b10084ffa2a0812e7ee342c0c742f77a67f
 import com.example.a4party.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -37,7 +34,7 @@ public class Register_activity extends AppCompatActivity {
     private EditText contrasenia1ET, contrasenia2ET, nombreET, apellidoET, emailET, dniET;
     private String password, password2, name, surname, email, dni;
     private FirebaseAuth firebaseauthor;
-
+    private AwesomeValidation validadorAwesome;
     private CRUD crud;
 
     @Override
@@ -55,12 +52,10 @@ public class Register_activity extends AppCompatActivity {
         emailET = findViewById(R.id.correoElectronicoEditText);
         dniET = findViewById(R.id.dniEditText);
 
-<<<<<<< HEAD
-=======
+
         validadorAwesome = new AwesomeValidation(ValidationStyle.BASIC);
         validadorAwesome.addValidation(Register_activity.this, R.id.correoAutonomoET, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
         validadorAwesome.addValidation(Register_activity.this, R.id.contrasenia2AutonomoET, R.id.contraseniaAutonomoET, R.string.invalid_passw);
->>>>>>> 3f399b10084ffa2a0812e7ee342c0c742f77a67f
         /*=====================================================*/
         Registrarse.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +76,7 @@ public class Register_activity extends AppCompatActivity {
                                 //mensaje de exito
                                 mensajeExito();
 
-                                crud.almacenarUsuario(name,surname,dni,email);
+                                crud.almacenarUsuario(name, surname, dni, email);
                             } else {
                                 errorCampoVacio();
 
@@ -101,12 +96,14 @@ public class Register_activity extends AppCompatActivity {
         });
 
     }
+
     private void goLoginU() {
         Intent i = new Intent(this, Login_activity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();
     }
+
     private void errorCampoVacio() {
         AlertDialog.Builder builder = new AlertDialog.Builder(Register_activity.this);
         builder.setTitle("Error");
@@ -136,7 +133,7 @@ public class Register_activity extends AppCompatActivity {
     }
 
 
-    private boolean comprobacionContra(){
+    private boolean comprobacionContra() {
         if (!password.equals(password2) || password.isEmpty()) {
             mensajeerrorContrasenia();
             return false;

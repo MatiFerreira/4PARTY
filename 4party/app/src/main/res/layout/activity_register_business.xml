@@ -169,7 +169,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
         android:background="@drawable/botonredondo"
-        android:text="Cancell"
+        android:text="Cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
