@@ -5,14 +5,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.example.a4party.BBDD.CRUD;
 import com.example.a4party.R;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import org.jetbrains.annotations.NotNull;
 
 public class RegisterBusiness extends AppCompatActivity {
 
@@ -21,6 +26,9 @@ public class RegisterBusiness extends AppCompatActivity {
     AwesomeValidation validadorAwesome;
     private String nombrestr, apellidostr, contrasenia1str, contrasenia2str, dnistr, correostr, nameestablecimientostr,
             codidopostalstr;
+    private FirebaseAuth firebaseAuth;
+    private CRUD crud;
+    private boolean isFormart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,39 +46,6 @@ public class RegisterBusiness extends AppCompatActivity {
         botonRegistrarse = findViewById(R.id.crearcuentaAutonomoBTN);
         /*----------------------------------------------------------------------*/
         //validaciones con awesomevalidator
-        validadorAwesome = new AwesomeValidation(ValidationStyle.BASIC);
-        validadorAwesome.addValidation(RegisterBusiness.this, R.id.correoAutonomoET, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
-        validadorAwesome.addValidation(RegisterBusiness.this, R.id.contrasenia2AutonomoET, R.id.contraseniaAutonomoET, R.string.invalid_passw);
-        botonRegistrarse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //recogemos los valores
-                nombrestr = nombre.getText().toString();
-                apellidostr = apellido.getText().toString();
-                contrasenia1str = contrasenia1.getText().toString();
-                contrasenia2str = contrasenia2.getText().toString();
-                dnistr = dni.getText().toString();
-                correostr = correo.getText().toString();
-                nameestablecimientostr = nameEstablecimiento.getText().toString();
-                codidopostalstr = codigoPostal.getText().toString();
-                /*------------------------------*/
 
-                if (validadorAwesome.validate() && isEmptyAll()) {
-
-                }
-            }
-        });
     }
-
-    public boolean isEmptyAll() {
-        if (nombrestr.isEmpty() && apellidostr.isEmpty() && contrasenia1str.isEmpty() &&
-                contrasenia2str.isEmpty() && dnistr.isEmpty() && correostr.isEmpty() && nameestablecimientostr.isEmpty() &&
-                codidopostalstr.isEmpty()) {
-            Toast.makeText(this, "LOS CAMPOS NO PUEDEN ESTAR VACIO", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        return true;
-    }
-
-
 }

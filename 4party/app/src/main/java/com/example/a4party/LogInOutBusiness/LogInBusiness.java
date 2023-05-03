@@ -48,7 +48,12 @@ public class LogInBusiness extends AppCompatActivity {
                 //recogemos valores de los campo texfield
                 String correoString = correoBusiness.getText().toString();
                 String contraseniaString = contraseniaBusiness.getText().toString();
-                signIn(correoString, contraseniaString);
+                if (correoString.isEmpty() && contraseniaString.isEmpty()) {
+                    mensajeVacio();
+                } else {
+                    signIn(correoString, contraseniaString);
+                }
+
             }
         });
 
@@ -66,6 +71,7 @@ public class LogInBusiness extends AppCompatActivity {
             }
         });
     }
+
     private void goRegisterB() {
         Intent i = new Intent(this, RegisterBusiness.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -109,5 +115,8 @@ public class LogInBusiness extends AppCompatActivity {
 
     }
 
+    private void mensajeVacio() {
+        Toast.makeText(this, "CAMPO VACIO", Toast.LENGTH_SHORT).show();
+    }
 
 }

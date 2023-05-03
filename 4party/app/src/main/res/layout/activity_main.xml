@@ -15,12 +15,4 @@
                  android:layout_gravity="center"
                  android:indeterminateTint="#210471"
     />
-    <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:lottie_loop="true"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/efecto1"
-    />
 </LinearLayout>
