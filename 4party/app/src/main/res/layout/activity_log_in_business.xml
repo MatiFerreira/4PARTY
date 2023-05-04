@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#212121"
+        android:background="@color/grismedianoche"
         tools:context=".LogInOutBusiness.LogInBusiness">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -37,56 +37,56 @@
 
 
     <TextView
-        android:id="@+id/link_textB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Ir al login Users"
-        android:textColor="#89A2D3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contraseniabusinessET"
-        app:layout_constraintVertical_bias="0.022"
-        tools:ignore="MissingConstraints" />
+            android:id="@+id/link_textB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Ir al login Users"
+            android:textColor="#89A2D3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contraseniabusinessET"
+            app:layout_constraintVertical_bias="0.022"
+            tools:ignore="MissingConstraints"/>
 
     <Button
-        android:id="@+id/registerBusinessBT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="108dp"
-        android:background="@drawable/botonredondo"
-        android:text="REGISTER"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contraseniabusinessET" />
+            android:id="@+id/registerBusinessBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="108dp"
+            android:background="@drawable/botonredondo"
+            android:text="REGISTER"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contraseniabusinessET"/>
 
     <EditText
-        android:id="@+id/contraseniabusinessET"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/textviewredondo"
-        android:ems="10"
-        android:hint="CONTRASEÑA"
-        android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        android:textColorHint="#442B49"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/businessemailET" />
+            android:id="@+id/contraseniabusinessET"
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/textviewredondo"
+            android:ems="10"
+            android:hint="CONTRASEÑA"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:textColorHint="#442B49"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/businessemailET"/>
 
     <Button
-        android:id="@+id/loginbusinessBT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/botonredondo"
-        android:text="LOGIN"
-        app:layout_constraintEnd_toStartOf="@+id/registerBusinessBT"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contraseniabusinessET" />
+            android:id="@+id/loginbusinessBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/botonredondo"
+            android:text="LOGIN"
+            app:layout_constraintEnd_toStartOf="@+id/registerBusinessBT"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contraseniabusinessET"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

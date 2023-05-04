@@ -9,30 +9,28 @@ import com.example.a4party.Fragment.OrderFragments;
 import com.example.a4party.Fragment.PartySearchFragment;
 import com.example.a4party.Fragment.ProfileFragment;
 import com.example.a4party.R;
-import com.example.a4party.databinding.ActivityHomeBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HOME_ACTIVITY extends AppCompatActivity {
-    ActivityHomeBinding binding;
+    BottomNavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityHomeBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        ReemplazadorFragments(new Fragment());
-        binding.bottomnavigationview.setOnItemSelectedListener(item -> {
+        setContentView(R.layout.activity_home);
+        navigationView = findViewById(R.id.bottomNavigationView);
+        getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, new PartySearchFragment()).commit();
+        navigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
+                case R.id.orderitem:
+                    ReemplazadorFragments(new OrderFragments());
+                    break;
+                case R.id.profileitem:
+                    ReemplazadorFragments(new ProfileFragment());
+                    break;
                 case R.id.partyitem:
                     ReemplazadorFragments(new PartySearchFragment());
                     break;
-                case R.id.homeitem:
-                    ReemplazadorFragments(new ProfileFragment());
-                    break;
-                case R.id.profileitem:
-                    ReemplazadorFragments(new OrderFragments());
-                    break;
-                default:
-                    return false;
             }
             return false;
         });
@@ -41,7 +39,7 @@ public class HOME_ACTIVITY extends AppCompatActivity {
     private void ReemplazadorFragments(Fragment fragmentParams) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.framelayout, fragmentParams);
+        fragmentTransaction.replace(R.id.frameLayout, fragmentParams);
         fragmentTransaction.commit();
 
     }

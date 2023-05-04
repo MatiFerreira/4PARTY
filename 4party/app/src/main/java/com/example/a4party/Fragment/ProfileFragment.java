@@ -1,7 +1,5 @@
 package com.example.a4party.Fragment;
 
-import static android.widget.Toast.LENGTH_SHORT;
-
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
