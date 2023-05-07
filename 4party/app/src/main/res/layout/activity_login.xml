@@ -28,6 +28,8 @@
             android:layout_height="48dp"
             android:hint="EMAIL"
             android:paddingLeft="10dp"
+            android:textColorHint="@color/morado"
+            android:textColor="@color/morado"
             android:inputType="textEmailAddress"
             android:background="@drawable/textviewredondo"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +41,8 @@
     <EditText
             android:layout_width="250dp"
             android:id="@+id/password_loginact"
+            android:textColorHint="@color/morado"
+            android:textColor="@color/morado"
             android:layout_height="48dp"
             android:paddingLeft="10dp"
             android:inputType="textPassword"
