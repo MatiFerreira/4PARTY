@@ -37,23 +37,17 @@ public class LogInBusiness extends AppCompatActivity {
         setContentView(R.layout.activity_log_in_business);
         validadorAwesome = new AwesomeValidation(ValidationStyle.BASIC);
         contraseniaBusiness = findViewById(R.id.contraseniabusinessET);
-        validadorAwesome.addValidation(LogInBusiness.this, R.id.businessemailET, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
+        validadorAwesome.addValidation(this, R.id.businessemailET, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
+        validadorAwesome.addValidation(this, R.id.contraseniabusinessET, ".{6,}", R.string.invalid_passw);
         botonLogin = findViewById(R.id.loginbusinessBT);
+        firebaseauthor = FirebaseAuth.getInstance(); //Instanciamos El login del empresario!
         linkTextView = findViewById(R.id.link_textB);
         botonRegister = findViewById(R.id.registerBusinessBT);
-        botonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                validadorAwesome.validate();
-                //recogemos valores de los campo texfield
-                String correoString = correoBusiness.getText().toString();
-                String contraseniaString = contraseniaBusiness.getText().toString();
-                if (correoString.isEmpty() && contraseniaString.isEmpty()) {
-                    mensajeVacio();
-                } else {
-                    signIn(correoString, contraseniaString);
-                }
 
+
+        botonLogin.setOnClickListener(view -> {
+            if (validadorAwesome.validate()){
+                //Entonces haz lo siguiente!
             }
         });
 
@@ -86,37 +80,8 @@ public class LogInBusiness extends AppCompatActivity {
         finish();
     }
 
-    //METODO PARA INICIAR SESION!
-    private void signIn(String email, String password) {
-        // [START sign_in_with_email]
-        firebaseauthor.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser usuario = firebaseauthor.getCurrentUser();
-                            updateUI(usuario);
-                            //INTENT A LA PAGINA DONDE SE VERAN LAS COSAS
-
-                            //fin del login
-                            finish();
-                        }
-                    }
-
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull @NotNull Exception e) {
-                        Toast.makeText(LogInBusiness.this, "USUARIO NO EXISTE O DATOS INCORRECTOS", Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
-
     private void updateUI(FirebaseUser user) {
 
-    }
-
-    private void mensajeVacio() {
-        Toast.makeText(this, "CAMPO VACIO", Toast.LENGTH_SHORT).show();
     }
 
 }

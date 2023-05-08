@@ -6,29 +6,29 @@ public class Empresario {
     private String email;
     private String codigoPostal;
     private String nombreEstablecimiento;
-    private boolean isEmpresario;
+    private boolean empresario;
 
     public Empresario() {
 
     }
 
     public Empresario(String dni, String nombre, String apellido, String email, String codigoPostal,
-                      String nombreEstablecimiento, boolean isEmpresario) {
+                      String nombreEstablecimiento, boolean empresario) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.codigoPostal = codigoPostal;
         this.nombreEstablecimiento = nombreEstablecimiento;
-        this.isEmpresario = isEmpresario;
+        this.empresario = empresario;
     }
 
     public boolean isEmpresario() {
-        return isEmpresario;
+        return empresario;
     }
 
     public void setEmpresario(boolean empresario) {
-        isEmpresario = empresario;
+        this.empresario = empresario;
     }
 
     public String getDni() {

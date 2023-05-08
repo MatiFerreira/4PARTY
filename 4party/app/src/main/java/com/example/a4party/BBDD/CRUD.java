@@ -1,15 +1,21 @@
 package com.example.a4party.BBDD;
 
 
+import android.content.Context;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
 import com.example.a4party.Objetos.Empresario;
 import com.example.a4party.Objetos.Usuario;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.*;
+import org.jetbrains.annotations.NotNull;
 
 public class CRUD {
 
     private DatabaseReference databaseReference;
 
+    public CRUD() {
+
+    }
 
     private void instanciarDatabase() {
         databaseReference = FirebaseDatabase.getInstance().getReference();
