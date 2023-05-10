@@ -38,7 +38,6 @@ public class LogInBusiness extends AppCompatActivity {
         validadorAwesome = new AwesomeValidation(ValidationStyle.BASIC);
         contraseniaBusiness = findViewById(R.id.contraseniabusinessET);
         validadorAwesome.addValidation(this, R.id.businessemailET, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
-        validadorAwesome.addValidation(this, R.id.contraseniabusinessET, ".{6,}", R.string.invalid_passw);
         botonLogin = findViewById(R.id.loginbusinessBT);
         firebaseauthor = FirebaseAuth.getInstance(); //Instanciamos El login del empresario!
         linkTextView = findViewById(R.id.link_textB);
@@ -46,7 +45,7 @@ public class LogInBusiness extends AppCompatActivity {
 
 
         botonLogin.setOnClickListener(view -> {
-            if (validadorAwesome.validate()){
+            if (validadorAwesome.validate()) {
                 //Entonces haz lo siguiente!
             }
         });

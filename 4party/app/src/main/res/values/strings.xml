@@ -25,5 +25,8 @@
     <string name="nameEstablecimientoautonomo">NOMBRE DEL ESTABLECIMIENTO</string>
     <string name="contrasenia">CONTRASEÑA</string>
     <string name="botonregister">CREATE ACCOUNT</string>
+    <string name="titulo">TITULO</string>
+    <string name="descripcion">DESCRIPCION</string>
+    <string name="descripcionimagen">IMAGEN DEL LOCAL</string>
 
 </resources>

@@ -21,8 +21,8 @@
             app:itemIconTint="@color/morado"
             android:id="@+id/bottomNavigationView"/>
     <FrameLayout
-            android:layout_width="409dp"
-            android:layout_height="673dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:id="@+id/frameLayout"
             app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
             app:layout_constraintEnd_toEndOf="parent"

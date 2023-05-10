@@ -37,4 +37,8 @@ public class CRUD {
         databaseReference.child("empresas").child(DNI).setValue(empresario);
     }
 
+    public void almacenarLocales() {
+        instanciarDatabase();
+
+    }
 }

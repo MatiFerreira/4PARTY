@@ -36,6 +36,7 @@ public class Register_activity extends AppCompatActivity {
     private FirebaseAuth firebaseauthor;
     private AwesomeValidation validadorAwesome;
     private CRUD crud;
+    private boolean isFormart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,37 +58,6 @@ public class Register_activity extends AppCompatActivity {
         validadorAwesome.addValidation(Register_activity.this, R.id.correoAutonomoET, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
         validadorAwesome.addValidation(Register_activity.this, R.id.contrasenia2AutonomoET, R.id.contraseniaAutonomoET, R.string.invalid_passw);
         /*=====================================================*/
-        Registrarse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                password = contrasenia1ET.getText().toString();
-                password2 = contrasenia2ET.getText().toString();
-                email = emailET.getText().toString();
-                name = nombreET.getText().toString();
-                surname = apellidoET.getText().toString();
-                dni = dniET.getText().toString();
-                //Si la informacion de registro es correcta entra aqui
-                if (comprobacionContra()) {
-                    //todo sale con exito -->
-                    firebaseauthor.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                //mensaje de exito
-                                mensajeExito();
-
-                                crud.almacenarUsuario(name, surname, dni, email);
-                            } else {
-                                errorCampoVacio();
-
-                            }
-                        }
-                    });
-                }
-
-            }
-        });
-
         Cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,6 +65,33 @@ public class Register_activity extends AppCompatActivity {
             }
         });
 
+        //CLICK EN BOTON REGISTRARSE-->
+        Registrarse.setOnClickListener(view -> {
+            name = nombreET.getText().toString();
+            surname = apellidoET.getText().toString();
+            email = emailET.getText().toString();
+            dni = dniET.getText().toString();
+            password = contrasenia1ET.getText().toString();
+            password2 = contrasenia2ET.getText().toString();
+            //VALIDAMOS Y COMPROBAMOS DNI
+            comprobarDNI(dni);
+            //TAMAÑO CONTRASEÑA
+            lengthContraenia();
+            //IS CAMPO VACIO
+            comprobarIsvacio();
+            if (isFormart) {
+                firebaseauthor.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(this, "REGISTRADO CORRECTAMENTE!", Toast.LENGTH_SHORT).show();
+                        crud = new CRUD();
+                        crud.almacenarUsuario(name, surname, dni, email);//ALMACENA AL USUARIO EN LA BBDD
+                        goLoginU();
+                    }
+                }).addOnFailureListener(e -> {
+                    Toast.makeText(this, "REGISTRADO INCORRECTAMENTE COMPRUEBE LOS CAMPOS", Toast.LENGTH_SHORT).show();
+                });
+            }
+        });
     }
 
     private void goLoginU() {
@@ -104,46 +101,36 @@ public class Register_activity extends AppCompatActivity {
         finish();
     }
 
-    private void errorCampoVacio() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(Register_activity.this);
-        builder.setTitle("Error");
-        builder.setMessage("Tienes que rellenar todos los campos");
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                // Código que se ejecuta cuando se hace clic en el botón OK
-
-            }
-        });
-        builder.show();
-    }
-
-    private void errorDni() {
-        Pattern pattern = Pattern.compile("[0-9]{8},[A-Z]{1}");
-        Matcher matcher = pattern.matcher(dni);
-        if (!matcher.matches()) {
-            Toast.makeText(this, "FORMATO INCORRECTO POR FAVOR 8DIGITOS Y 1 LETRA MAYUSCULA"
-                    , Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void mensajeExito() {
-        Toast.makeText(this, "Registrado Correctamente", Toast.LENGTH_LONG).show();
-        finish();
-    }
-
-
-    private boolean comprobacionContra() {
-        if (!password.equals(password2) || password.isEmpty()) {
-            mensajeerrorContrasenia();
-            return false;
+    private void comprobarDNI(String dni) {
+        Pattern pat = Pattern.compile("[0-9]{7,8}[A-Za-z]");
+        Matcher mat = pat.matcher(dni);
+        boolean cumplePatron = mat.matches();
+        if (!cumplePatron) {
+            isFormart = false;
+            Toast.makeText(this, "FORMATO DNI INCORRECTO", Toast.LENGTH_SHORT).show();
         } else {
-            return true;
+            isFormart = true;
         }
     }
 
-    private void mensajeerrorContrasenia() {
-        Toast.makeText(this, "CONTRASEÑA VACIA O NO COINCIDEN", Toast.LENGTH_LONG).show();
+    //COMPROBAR CAMPO VACIO
+    private void comprobarIsvacio() {
+        //compruebo si algun campo esta vacio
+        if (name.isEmpty() || surname.isEmpty() || email.isEmpty()) {
+            Toast.makeText(this, "CAMPOS VACIOS", Toast.LENGTH_SHORT).show();
+            isFormart = false;
+        } else {
+            isFormart = true;
+        }
     }
 
+    //comprobar Tamaño contraseña
+    private void lengthContraenia() {
+        if (password.length() < 6) {
+            Toast.makeText(this, "CONTRASEÑA DEBE SER MINIMO 6 DIGITOS", Toast.LENGTH_SHORT).show();
+            isFormart = false;
+        } else {
+            isFormart = true;
+        }
+    }
 }
