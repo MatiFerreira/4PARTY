@@ -106,7 +106,7 @@
               android:text="@string/titulo2creacioncorreo"
               android:textSize="25sp"
               android:textAlignment="center"
-              android:textColor="#442B49"
+              android:textColor="@color/morado"
               app:layout_constraintTop_toBottomOf="@+id/nameEstablecimientoET"
               app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintEnd_toEndOf="parent"
@@ -123,9 +123,9 @@
               android:inputType="textPassword"
               android:background="@drawable/textviewredondo"
               android:hint="@string/contrasenia"
-              android:textColor="#442B49"
+              android:textColor="@color/morado"
               android:paddingLeft="30dp"
-              android:textColorHint="#442B49"
+              android:textColorHint="@color/morado"
               app:layout_constraintHorizontal_bias="0.0"
               android:id="@+id/contraseniaAutonomoET"/>
 

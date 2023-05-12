@@ -46,7 +46,7 @@ public class RegisterBusiness extends AppCompatActivity {
         nameEstablecimiento = findViewById(R.id.nameEstablecimientoET);
         codigoPostal = findViewById(R.id.codigoPostalAutonomoET);
         botonRegistrarse = findViewById(R.id.crearcuentaAutonomoBTN);
-        crud = new CRUD();
+        crud = new CRUD(this);
         /*----------------------------------------------------------------------*/
         botoncancell.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +64,7 @@ public class RegisterBusiness extends AppCompatActivity {
             dnistr = dni.getText().toString();
             correostr = correo.getText().toString();
             codidopostalstr = codigoPostal.getText().toString();
+            nameestablecimientostr = nameEstablecimiento.getText().toString();
             //VALIDAMOS DATOS
             //comprobar dni
             comprobarDNI(dnistr);
@@ -76,11 +77,11 @@ public class RegisterBusiness extends AppCompatActivity {
             if (isFormart) {
                 firebaseAuth.createUserWithEmailAndPassword(correostr, contrasenia2str).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
+                        crud.CreateAutonomo(dnistr, nombrestr, apellidostr, correostr, codidopostalstr, nameestablecimientostr);
                         //is todo a salido correctamenta hará lo siguiente
                         Toast.makeText(this, "REGISTRADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
                         //almacenamos al Empresario.
-                        crud.almacenarEmpresario(nombrestr, apellidostr, dnistr, codidopostalstr, correostr, nameestablecimientostr);
-                        finish();
+                        goLoginB();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

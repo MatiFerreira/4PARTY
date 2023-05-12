@@ -14,7 +14,7 @@
             android:theme="@style/Theme.4party"
             tools:targetApi="31">
         <activity
-                android:name=".LocalesActivity"
+                android:name=".IntefaceAPP.LocalesActivity"
                 android:exported="false"/>
         <activity
                 android:name=".SplashScreen.MainActivity"

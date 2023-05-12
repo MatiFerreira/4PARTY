@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.example.a4party.IntefaceAPP.HOME_ACTIVITY;
+import com.example.a4party.IntefaceAPP.LocalesActivity;
 import com.example.a4party.LogInOutUser.Login_activity;
 import com.example.a4party.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -42,11 +44,30 @@ public class LogInBusiness extends AppCompatActivity {
         firebaseauthor = FirebaseAuth.getInstance(); //Instanciamos El login del empresario!
         linkTextView = findViewById(R.id.link_textB);
         botonRegister = findViewById(R.id.registerBusinessBT);
-
-
+        correoBusiness = findViewById(R.id.businessemailET);
+        contraseniaBusiness = findViewById(R.id.contraseniabusinessET);
         botonLogin.setOnClickListener(view -> {
             if (validadorAwesome.validate()) {
+                //recogemos string
+                String email = correoBusiness.getText().toString();
+                String password = contraseniaBusiness.getText().toString();
                 //Entonces haz lo siguiente!
+                if (!email.isEmpty() && !password.isEmpty()) {
+                    firebaseauthor.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(this, "INICIANDO SESION!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(this, LocalesActivity.class);
+                            intent.putExtra("correo", email);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }).addOnFailureListener(e -> {
+                        Toast.makeText(this, "USUARIO NO REGISTRADO O ESPACIO O CREDENCIALES MAL PUESTO", Toast.LENGTH_LONG).show();
+                    });
+                } else {
+                    Toast.makeText(this, "ALGUN CAMPO VACIO", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

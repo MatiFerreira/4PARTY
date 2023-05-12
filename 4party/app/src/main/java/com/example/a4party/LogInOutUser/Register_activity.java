@@ -83,8 +83,8 @@ public class Register_activity extends AppCompatActivity {
                 firebaseauthor.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(this, "REGISTRADO CORRECTAMENTE!", Toast.LENGTH_SHORT).show();
-                        crud = new CRUD();
-                        crud.almacenarUsuario(name, surname, dni, email);//ALMACENA AL USUARIO EN LA BBDD
+                        crud = new CRUD(this);
+                        crud.CreateUsuario(name, surname, dni, email);//ALMACENA AL USUARIO EN LA BBDD
                         goLoginU();
                     }
                 }).addOnFailureListener(e -> {
