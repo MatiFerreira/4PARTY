@@ -28,5 +28,7 @@
     <string name="titulo">TITULO</string>
     <string name="descripcion">DESCRIPCION</string>
     <string name="descripcionimagen">IMAGEN DEL LOCAL</string>
-
+    <!--   ALERT DIALOG -->
+    <string name="alertyes">ACEPTAR</string>
+    <string name="alertno">CANCELAR</string>
 </resources>
