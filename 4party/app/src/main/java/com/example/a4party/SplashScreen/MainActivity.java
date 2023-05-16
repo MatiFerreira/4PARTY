@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.core.view.WindowCompat;
 import com.example.a4party.LogInOutUser.Login_activity;
 import com.example.a4party.R;
 

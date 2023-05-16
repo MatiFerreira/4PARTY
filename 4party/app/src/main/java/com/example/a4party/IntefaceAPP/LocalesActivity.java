@@ -3,6 +3,7 @@ package com.example.a4party.IntefaceAPP;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -96,7 +97,8 @@ public class LocalesActivity extends AppCompatActivity {
     }
 
     private void intentImg() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        // Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        Intent intent = new Intent(MediaStore.ACTION_PICK_IMAGES);
         intent.setType("*/*");
         startActivityForResult(intent, IMG);
     }
