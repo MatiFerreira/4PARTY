@@ -1,5 +1,7 @@
 package com.example.a4party.BBDD;
 
+import android.content.Context;
+import android.net.Uri;
 import android.widget.TextView;
 
 public interface iCrud {
@@ -32,4 +34,5 @@ public interface iCrud {
      */
     public void ReadNameEstablecimiento(String email, TextView textView);
 
+    public void updateImage(Uri uri, Context context,String email);
 }

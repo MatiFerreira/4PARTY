@@ -2,6 +2,7 @@ package com.example.a4party.BBDD;
 
 
 import android.content.Context;
+import android.net.Uri;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -12,6 +13,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import org.jetbrains.annotations.NotNull;
+
+import java.io.File;
 
 public class CRUD implements iCrud {
     private FirebaseFirestore db;
@@ -88,6 +91,16 @@ public class CRUD implements iCrud {
             }
         });
 
+    }
+
+    public void updateImage(Uri uri, Context context, String email) {
+        instanciarDatabase();
+        db.collection("Empresarios").document(email).update("imgUrl", uri).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(context, "SUBIDO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
