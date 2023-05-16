@@ -54,9 +54,9 @@ public class Login_activity extends AppCompatActivity {
         FirebaseAuth mauth = FirebaseAuth.getInstance();
         FirebaseUser user = mauth.getCurrentUser();
 
-        //if (user != null) {
-        //    gohome();
-        //}
+        if (user != null) {
+            gohome();
+        }
         awesomeValidationmain = new AwesomeValidation(ValidationStyle.BASIC);
         awesomeValidationmain.addValidation(this, R.id.mail_loginact, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
         awesomeValidationmain.addValidation(this, R.id.password_loginact, ".{6,}", R.string.invalid_passw);
