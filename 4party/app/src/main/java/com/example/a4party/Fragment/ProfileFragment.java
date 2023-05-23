@@ -73,7 +73,9 @@ public class ProfileFragment extends Fragment {
                                 String apellidos = document.getString("apellido");
                                 String dni = document.getString("dni");
 
+
                                 // Obtén las referencias a los TextViews en tu diseño de fragmento
+                                TextView profilepasswordTextView = getView().findViewById(R.id.profilepasswordlistvalue);
                                 TextView profileMailTextView = getView().findViewById(R.id.profilemail);
                                 TextView profileNameTextView = getView().findViewById(R.id.profilename);
                                 TextView profileNameTextView2 = getView().findViewById(R.id.profilenamelistvalue);
@@ -81,6 +83,7 @@ public class ProfileFragment extends Fragment {
                                 TextView profileApellidosListValueTextView = getView().findViewById(R.id.profilelastnamelistvalue);
 
                                 // Establece los valores en los TextViews correspondientes
+                                profilepasswordTextView.setText(apellidos);
                                 profileMailTextView.setText(email);
                                 profileNameTextView.setText(nombre);
                                 profileNameTextView2.setText(nombre);
