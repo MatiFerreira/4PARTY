@@ -43,6 +43,5 @@ public class HOME_ACTIVITY extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout, fragmentParams);
         fragmentTransaction.commit();
-
     }
 }
