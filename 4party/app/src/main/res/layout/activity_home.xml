@@ -7,27 +7,23 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".IntefaceAPP.HOME_ACTIVITY">
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:menu="@menu/actionbar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/grismedianoche"
-            app:labelVisibilityMode="unlabeled"
-            app:itemIconTint="@color/morado"
-            android:id="@+id/bottomNavigationView"/>
     <FrameLayout
+            android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/frameLayout"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginBottom="56dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    </FrameLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="0dp"
+            app:labelVisibilityMode="unlabeled"
+            android:background="@color/grismedianoche"
+            app:itemIconTint="@color/morado"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/actionbar"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

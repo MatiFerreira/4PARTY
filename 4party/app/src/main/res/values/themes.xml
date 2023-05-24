@@ -15,4 +15,10 @@
         <!-- Customize your theme here. -->
         <!--        <item name="statusBarForeground">#212121</item>-->
     </style>
+    <style name="Theme.4party.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.4party.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.4party.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 </resources>

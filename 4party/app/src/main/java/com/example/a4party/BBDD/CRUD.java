@@ -5,13 +5,17 @@ import android.content.Context;
 import android.net.Uri;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+
 import com.example.a4party.Objetos.Empresario;
 import com.example.a4party.Objetos.Usuario;
+import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -57,6 +61,18 @@ public class CRUD implements iCrud {
 
     //METODO CRUD (UPDATE)--->
     //ACTUALIZA DATOS//
+
+    public void UpdateNameUsuario(String email, String newNameUser) {
+        instanciarDatabase();
+        documentReference = db.collection("Usuarios").document(email);
+        documentReference.update("nombre", newNameUser).addOnSuccessListener(unused -> {
+            Toast.makeText(context, "NOMBRE ACTUALIZADO", Toast.LENGTH_SHORT).show();
+        }).addOnFailureListener(e -> {
+            Toast.makeText(context, "ERROR EN LA ACTUALIZACION", Toast.LENGTH_SHORT).show();
+        });
+    }
+
+
     @Override
     public void UpdateNameEstablishent(String email, String nameEstablishent) {
         instanciarDatabase();
@@ -93,13 +109,15 @@ public class CRUD implements iCrud {
 
     }
 
-    public void updateImage(Uri uri, Context context, String email) {
+    public void updateImage(String uri, String email) {
         instanciarDatabase();
-        db.collection("Empresarios").document(email).update("imgUrl", uri).addOnSuccessListener(new OnSuccessListener<Void>() {
+        db.collection("Empresarios").document(email).update("urlimagen", uri).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(context, "SUBIDO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
             }
+        }).addOnFailureListener(e -> {
+            Toast.makeText(context, "ERROR REINTENTALO DE NUEVO", Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -119,7 +137,7 @@ public class CRUD implements iCrud {
 
 
     /*
-     * CRUD(READ)SSS
+     * CRUD(READ)
      * */
 
     @Override
@@ -137,6 +155,7 @@ public class CRUD implements iCrud {
             }
         });
     }
+
 
     public void ReadNameUsuario(String email) {
         instanciarDatabase();

@@ -29,10 +29,10 @@ public interface iCrud {
 
     public void UpdateCP(String email, String cp);
 
+    public void updateImage(String uri, String email);
+
     /*
      * READ
      */
     public void ReadNameEstablecimiento(String email, TextView textView);
-
-    public void updateImage(Uri uri, Context context,String email);
 }
