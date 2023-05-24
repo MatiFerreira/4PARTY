@@ -1,11 +1,14 @@
-package com.example.a4party.IntefaceAPP.adapter;
+package com.example.a4party.LogInOutBusiness.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.a4party.R;
 
 public class myadapter extends RecyclerView.Adapter<myadapter.ViewHolder> {
 
@@ -30,13 +33,15 @@ public class myadapter extends RecyclerView.Adapter<myadapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+
         public ViewHolder(View view) {
             super(view);
-
+            imageView = view.findViewById(R.id.imagenestablecimiento);
         }
 
         public void bind() {
-            //Donde se va a procesar la imagen de carga de la lista de
+
         }
     }
 }
