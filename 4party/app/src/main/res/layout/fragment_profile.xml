@@ -52,7 +52,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="John Doe"
+                        android:text=""
                         android:textColor="#ffffff"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -64,7 +64,7 @@
                         android:id="@+id/profilemail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="johndoe@gmail.com"
+                        android:text=""
                         android:textColor="#ffffff"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="@+id/profilename"
@@ -233,7 +233,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="John"
+                                android:text=""
                                 android:textAlignment="viewEnd"
                                 android:textColor="#5B5B5B"
                                 android:textSize="18sp" />
@@ -270,7 +270,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Doe "
+                                android:text=" "
                                 android:textAlignment="viewEnd"
                                 android:textColor="#5B5B5B"
                                 android:textSize="18sp" />
@@ -307,7 +307,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="77235111Q "
+                                android:text=" "
                                 android:textAlignment="viewEnd"
                                 android:textColor="#5B5B5B"
                                 android:textSize="18sp" />
@@ -344,7 +344,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="............... "
+                                android:inputType="textPassword"
                                 android:textAlignment="viewEnd"
                                 android:textColor="#5B5B5B"
                                 android:textSize="18sp" />
