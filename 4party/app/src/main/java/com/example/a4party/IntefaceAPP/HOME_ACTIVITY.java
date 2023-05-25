@@ -1,6 +1,8 @@
 package com.example.a4party.IntefaceAPP;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.WindowCompat;
 import androidx.fragment.app.Fragment;
@@ -22,6 +24,27 @@ public class HOME_ACTIVITY extends AppCompatActivity {
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         navigationView = findViewById(R.id.bottomNavigationView);
         getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, new PartySearchFragment()).commit();
+        // Obtén el intent y verifica si contiene el extra "fragment"
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("fragment")) {
+            String fragmentName = intent.getStringExtra("fragment");
+            if (fragmentName.equals("carrito")) {
+                // Reemplaza el fragmento actual con el fragmento "Carrito"
+                Fragment carritoFragment = new OrderFragments();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout, carritoFragment);
+                fragmentTransaction.commit();
+            }if (fragmentName.equals("profile")) {
+                // Reemplaza el fragmento actual con el fragmento "Carrito"
+                Fragment carritoFragment = new ProfileFragment();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout, carritoFragment);
+                fragmentTransaction.commit();
+            }
+        }
+
         navigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.orderitem:

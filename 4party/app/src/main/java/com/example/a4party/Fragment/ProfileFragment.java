@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.a4party.IntefaceAPP.EditProfile;
+import com.example.a4party.IntefaceAPP.HOME_ACTIVITY;
 import com.example.a4party.LogInOutUser.Login_activity;
 import com.example.a4party.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,6 +38,7 @@ public class ProfileFragment extends Fragment {
     TextView viewemail;
     ProgressDialog progressDialog;
     LinearLayout lcarrito,lhcompras,ledit;
+    String nombre;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,7 +84,7 @@ public class ProfileFragment extends Fragment {
 
                             // Obtén los datos del documento
                             String email = document.getString("email");
-                            String nombre = document.getString("nombre");
+                            nombre = document.getString("nombre");
                             String apellidos = document.getString("apellido");
                             String dni = document.getString("dni");
 
@@ -131,7 +133,7 @@ public class ProfileFragment extends Fragment {
         lcarrito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReemplazadorFragments(new PartySearchFragment());
+                goCarrito();
             }
         });
 
@@ -143,13 +145,18 @@ public class ProfileFragment extends Fragment {
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
     }
-    private void goEditprofile() {
-        Intent i = new Intent(getActivity(), EditProfile.class);
-        //i.putExtra("mail", et_mail.getText().toString());
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(i);
-    }
 
+        private void goEditprofile() {
+            Intent intent = new Intent(getActivity(), EditProfile.class);
+            intent.putExtra("nombre", nombre);
+            startActivity(intent);
+        }
+
+        private void goCarrito() {
+            Intent intent = new Intent(getActivity(), HOME_ACTIVITY.class);
+            intent.putExtra("fragment", "carrito"); // Envía un identificador del fragmento "carrito"
+            startActivity(intent);
+       }
     private void ReemplazadorFragments(Fragment fragmentParams) {
         FragmentManager fragmentManager = getChildFragmentManager();  // Utiliza getChildFragmentManager() en lugar de getSupportFragmentManager()
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
