@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f5f5f5">
+    android:background="#AE3C3B3B">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -39,8 +39,8 @@
 
                     <ImageView
                         android:id="@+id/profileimage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="92dp"
+                        android:layout_height="96dp"
                         android:layout_marginTop="32dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
                         app:srcCompat="@drawable/profile" />
 
                     <TextView
-                        android:id="@+id/profilename"
+                        android:id="@+id/editprofilename"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -61,15 +61,15 @@
                         app:layout_constraintTop_toBottomOf="@+id/profileimage" />
 
                     <TextView
-                        android:id="@+id/profilemail"
+                        android:id="@+id/editprofilemail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
                         android:textColor="#ffffff"
                         android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="@+id/profilename"
-                        app:layout_constraintStart_toStartOf="@+id/profilename"
-                        app:layout_constraintTop_toBottomOf="@+id/profilename" />
+                        app:layout_constraintEnd_toEndOf="@+id/editprofilename"
+                        app:layout_constraintStart_toStartOf="@+id/editprofilename"
+                        app:layout_constraintTop_toBottomOf="@+id/editprofilename" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -84,7 +84,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/profilemail"
+                        app:layout_constraintTop_toBottomOf="@+id/editprofilemail"
                         app:layout_constraintVertical_bias="0.0">
 
                         <LinearLayout
@@ -99,7 +99,8 @@
                                 android:layout_weight="0.3333"
                                 android:background="@drawable/grey_background"
                                 android:elevation="5dp"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:id="@+id/linearcarrito">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:layout_width="60dp"
@@ -139,7 +140,8 @@
                                 android:layout_weight="0.3333"
                                 android:background="@drawable/grey_background"
                                 android:elevation="5dp"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:id="@+id/linearhcompras">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:layout_width="60dp"
@@ -179,7 +181,8 @@
                                 android:layout_weight="0.3333"
                                 android:background="@drawable/grey_background"
                                 android:elevation="5dp"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:id="@+id/linearedit">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:layout_width="60dp"
@@ -367,14 +370,16 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
+                android:layout_marginTop="20dp"
                 android:id="@+id/logoutbutton_profileact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background_button"
+                android:background="@drawable/botonredondo"
                 android:text="Logout"
                 android:textColor="#ffffff"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginBottom="70px"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

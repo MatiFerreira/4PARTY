@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.4party">
         <activity
-            android:name=".IntefaceAPP.ShowOffert"
+            android:name=".IntefaceAPP.EditProfile"
             android:exported="false" />
         <activity
             android:name=".IntefaceAPP.CrearOfeta"
