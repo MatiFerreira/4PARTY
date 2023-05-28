@@ -6,6 +6,7 @@ public class Empresario {
     private String email;
     private String codigoPostal;
     private String nombreEstablecimiento;
+    private String urlimagen = "https://firebasestorage.googleapis.com/v0/b/party-a6e37.appspot.com/o/predeterminado.jpg?alt=media&token=3efd8987-5e17-4e7e-99bf-f07e9671a2f4";
 
     public Empresario() {
 
@@ -19,6 +20,25 @@ public class Empresario {
         this.email = email;
         this.codigoPostal = codigoPostal;
         this.nombreEstablecimiento = nombreEstablecimiento;
+    }
+
+    public Empresario(String dni, String nombre, String apellido, String email, String codigoPostal,
+                      String nombreEstablecimiento, String urlimagen) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.codigoPostal = codigoPostal;
+        this.nombreEstablecimiento = nombreEstablecimiento;
+        this.urlimagen = urlimagen;
+    }
+
+    public String getUrlimagen() {
+        return urlimagen;
+    }
+
+    public void setUrlimagen(String urlimagen) {
+        this.urlimagen = urlimagen;
     }
 
     public String getDni() {

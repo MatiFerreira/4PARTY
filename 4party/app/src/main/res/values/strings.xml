@@ -21,7 +21,7 @@
     <string name="apellidoautono">APELLIDOS</string>
     <string name="correoautono">CORREO ELECTRONICO</string>
     <string name="dniautonomo">DNI</string>
-    <string name="codigopostalautono">CODIGO POSTAL</string>
+    <string name="direccionLocal">DIRECCION LOCAL</string>
     <string name="nameEstablecimientoautonomo">NOMBRE DEL ESTABLECIMIENTO</string>
     <string name="contrasenia">CONTRASEÑA</string>
     <string name="botonregister">CREATE ACCOUNT</string>
@@ -31,4 +31,5 @@
     <!--   ALERT DIALOG -->
     <string name="alertyes">ACEPTAR</string>
     <string name="alertno">CANCELAR</string>
+    <string name="title_activity_oferta_locales">OfertaLocales</string>
 </resources>

@@ -7,13 +7,17 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import com.example.a4party.BBDD.CRUD;
 import com.example.a4party.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseAuth;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.regex.Matcher;
@@ -21,10 +25,10 @@ import java.util.regex.Pattern;
 
 public class RegisterBusiness extends AppCompatActivity {
 
-    private EditText nombre, apellido, contrasenia1, contrasenia2, dni, correo, nameEstablecimiento, codigoPostal;
+    private EditText nombre, apellido, contrasenia1, contrasenia2, dni, correo, nameEstablecimiento, direccionLocal;
     private Button botonRegistrarse, botoncancell;
     private String nombrestr, apellidostr, contrasenia1str, contrasenia2str, dnistr, correostr, nameestablecimientostr,
-            codidopostalstr;
+            direccionstr;
     private FirebaseAuth firebaseAuth;
     private CRUD crud;
     private boolean isFormart;
@@ -44,7 +48,7 @@ public class RegisterBusiness extends AppCompatActivity {
         botoncancell = findViewById(R.id.cancellautonomobutton);
         correo = findViewById(R.id.correoAutonomoET);
         nameEstablecimiento = findViewById(R.id.nameEstablecimientoET);
-        codigoPostal = findViewById(R.id.codigoPostalAutonomoET);
+        direccionLocal = findViewById(R.id.codigoPostalAutonomoET);
         botonRegistrarse = findViewById(R.id.crearcuentaAutonomoBTN);
         crud = new CRUD(this);
         /*----------------------------------------------------------------------*/
@@ -63,7 +67,7 @@ public class RegisterBusiness extends AppCompatActivity {
             contrasenia2str = contrasenia2.getText().toString();
             dnistr = dni.getText().toString();
             correostr = correo.getText().toString();
-            codidopostalstr = codigoPostal.getText().toString();
+            direccionstr = direccionLocal.getText().toString();
             nameestablecimientostr = nameEstablecimiento.getText().toString();
             //VALIDAMOS DATOS
             //comprobar dni
@@ -77,7 +81,7 @@ public class RegisterBusiness extends AppCompatActivity {
             if (isFormart) {
                 firebaseAuth.createUserWithEmailAndPassword(correostr, contrasenia2str).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        crud.CreateAutonomo(dnistr, nombrestr, apellidostr, correostr, codidopostalstr, nameestablecimientostr);
+                        crud.CreateAutonomo(dnistr, nombrestr, apellidostr, correostr, direccionstr, nameestablecimientostr);
                         //is todo a salido correctamenta hará lo siguiente
                         Toast.makeText(this, "REGISTRADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
                         //almacenamos al Empresario.
@@ -115,7 +119,7 @@ public class RegisterBusiness extends AppCompatActivity {
 
     private void comprobarIsvacio() {
         //compruebo si algun campo esta vacio
-        if (nombrestr.isEmpty() || apellidostr.isEmpty() || dnistr.isEmpty() || correostr.isEmpty() || codidopostalstr.isEmpty()) {
+        if (nombrestr.isEmpty() || apellidostr.isEmpty() || dnistr.isEmpty() || correostr.isEmpty() || direccionstr.isEmpty()) {
             Toast.makeText(this, "CAMPOS VACIOS", Toast.LENGTH_SHORT).show();
             isFormart = false;
         } else {

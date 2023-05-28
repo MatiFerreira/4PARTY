@@ -3,6 +3,12 @@ package com.example.a4party.IntefaceAPP;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.graphics.Shader;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.widget.Button;
@@ -11,6 +17,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -68,7 +77,7 @@ public class LocalesActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         db.collection("Empresarios").document(emailuser).get().addOnSuccessListener(documentSnapshot -> {
             String imgen = documentSnapshot.getString("urlimagen");
-            Picasso.get().load(imgen).fit().into(imageView);
+            Picasso.get().load(imgen).fit().transform(new RoundedTransformation(50, 10)).centerCrop().into(imageView);
         });
     }
 
@@ -83,46 +92,15 @@ public class LocalesActivity extends AppCompatActivity {
         });
     }
 
-/*    private void EliminarCuenta(String email, FirebaseUser user) {
-        botonEliminarcuenta.setOnClickListener(view -> {
-            AlertDialog.Builder build = new AlertDialog.Builder(LocalesActivity.this);
-            build.setTitle("ADVERTENCIA!");
-            build.setMessage("ESTAS SEGURO DE ELIMINAR TU CUENTA?").setPositiveButton(R.string.alertyes, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    crud.DeleteEmpresario(email);
-                    user.delete().addOnCompleteListener(task -> {
-                        Toast.makeText(LocalesActivity.this, "ELIMINANDO..", Toast.LENGTH_SHORT).show();
-                        Intent di = new Intent(LocalesActivity.this, LogInBusiness.class);
-                        di.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(di);
-                        finish();
-                    });
-                }
-            }).setNegativeButton(R.string.alertno, (dialogInterface, i) -> {
-                dialogInterface.dismiss();
-            }).setCancelable(false).show();
-        });
-    }*/
-
-    private void AddOferta() {
-        botonOferta.setOnClickListener(view -> {
-
-        });
-    }
-
     private void addImg() {
         botonImagen.setOnClickListener(view -> {
             intentImg();
         });
     }
 
-    private void intentImg() { //adaptar codigo para apis inferior a 33
-        // Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        Intent intent = new Intent(MediaStore.ACTION_PICK_IMAGES);
-        intent.setType("*/*");
-        startActivityForResult(intent, IMG);
-
+    private void intentImg() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(galleryIntent, IMG);
     }
 
     @Override
@@ -156,10 +134,46 @@ public class LocalesActivity extends AppCompatActivity {
 
     private void crearOfertas() {
         botonOferta.setOnClickListener(view -> {
-            Intent intent = new Intent(this, CrearOfeta.class);
+            Intent intent = new Intent(LocalesActivity.this, CrearOfeta.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();
         });
+    }
+
+}
+
+class RoundedTransformation implements com.squareup.picasso.Transformation {
+    private final int radius;
+    private final int margin;
+
+    public RoundedTransformation(final int radius, final int margin) {
+        this.radius = radius;
+        this.margin = margin;
+    }
+
+
+    @Override
+    public Bitmap transform(Bitmap source) {
+        final Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setShader(new BitmapShader(source, Shader.TileMode.CLAMP,
+                Shader.TileMode.CLAMP));
+
+        Bitmap output = Bitmap.createBitmap(source.getWidth(), source.getHeight(),
+                Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(output);
+        canvas.drawRoundRect(new RectF(margin, margin, source.getWidth() - margin,
+                source.getHeight() - margin), radius, radius, paint);
+
+        if (source != output) {
+            source.recycle();
+        }
+        return output;
+    }
+
+    @Override
+    public String key() {
+        return "rounded(r=" + radius + ", m=" + margin + ")";
     }
 }

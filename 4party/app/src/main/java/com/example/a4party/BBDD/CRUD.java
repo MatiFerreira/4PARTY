@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.a4party.Objetos.Empresario;
+import com.example.a4party.Objetos.Productos;
 import com.example.a4party.Objetos.Usuario;
 import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -51,14 +52,28 @@ public class CRUD implements iCrud {
     }
 
     @Override
-    public void CreateAutonomo(String dni, String name, String surname, String email, String cp, String nameEstablishment) {
+    public void CreateAutonomo(String dni, String name, String surname, String email, String direccionlocal, String nameEstablishment) {
         instanciarDatabase();
-        Empresario empresario = new Empresario(dni, name, surname, email, cp, nameEstablishment);
+        Empresario empresario = new Empresario(dni, name, surname, email, direccionlocal, nameEstablishment);
         db.collection("Empresarios").document(email).set(empresario).addOnFailureListener(e -> {
             Toast.makeText(context, "ERROR EN LA BASE DE DATOS", Toast.LENGTH_SHORT).show();
         });
     }
 
+    @Override
+    public void CreateProductos(String email, String precio, String descripcion) {
+        instanciarDatabase();
+        Productos productos = new Productos(descripcion, precio);
+        db.collection("Productos").document(email).set(productos).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(context, "SUBIDO CORRECTAMENTE!", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(e -> {
+            Toast.makeText(context, "ERROR EN LA SUBIDA!", Toast.LENGTH_SHORT).show();
+        });
+
+    }
     //METODO CRUD (UPDATE)--->
     //ACTUALIZA DATOS//
 

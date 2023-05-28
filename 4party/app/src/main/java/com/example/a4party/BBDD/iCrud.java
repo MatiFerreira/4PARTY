@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.widget.TextView;
 
+import com.example.a4party.Objetos.Productos;
+
 public interface iCrud {
     /*
      *
@@ -14,6 +16,8 @@ public interface iCrud {
     public void CreateUsuario(String name, String surname, String dni, String email);
 
     public void CreateAutonomo(String dni, String name, String surname, String email, String cp, String nameEstablishment);
+
+    public void CreateProductos(String email, String precio, String descripcion);
 
     /*
      * DELETE
