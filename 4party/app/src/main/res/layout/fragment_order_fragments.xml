@@ -23,6 +23,7 @@
         android:id="@+id/continueShoppingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:text="Continue Shopping"
         />

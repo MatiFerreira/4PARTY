@@ -1,47 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grismedianoche"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/grismedianoche"
+        android:layout_height="wrap_content"
         tools:context=".LogInOutBusiness.LogInBusiness">
 
-    <com.airbnb.lottie.LottieAnimationView
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
             android:layout_width="250dp"
             android:layout_height="250dp"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/businessanimated"
-            tools:ignore="MissingConstraints"
-            android:id="@+id/lottieAnimationView"
+            android:layout_marginTop="60dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="60dp"
-            app:layout_constraintHorizontal_bias="0.496"/>
-    <EditText
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/businessanimated"
+            tools:ignore="MissingConstraints" />
+
+
+        <EditText
+            android:id="@+id/businessemailET"
             android:layout_width="250dp"
             android:layout_height="48dp"
-            android:inputType="textEmailAddress"
-            android:hint="EMAIL"
-            android:textColor="@color/morado"
-            android:paddingLeft="10dp"
-            android:textColorHint="@color/morado"
-            android:ems="10"
             android:background="@drawable/textviewredondo"
-            android:id="@+id/businessemailET"
-            app:layout_constraintStart_toStartOf="parent"
+            android:ems="10"
+            android:fontFamily="@font/roboto"
+            android:hint="EMAIL"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:textColor="@color/morado"
+            android:textColorHint="@color/morado"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView"/>
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView" />
 
-
-    <TextView
+        <TextView
             android:id="@+id/link_textB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto"
             android:text="Ir al login Users"
             android:textColor="#89A2D3"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -49,46 +56,53 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/contraseniabusinessET"
             app:layout_constraintVertical_bias="0.022"
-            tools:ignore="MissingConstraints"/>
+            tools:ignore="MissingConstraints" />
 
-    <Button
+        <Button
             android:id="@+id/registerBusinessBT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
             android:layout_marginTop="48dp"
             android:layout_marginEnd="108dp"
             android:background="@drawable/botonredondo"
+            android:fontFamily="@font/roboto"
             android:text="REGISTER"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contraseniabusinessET"/>
+            app:layout_constraintStart_toEndOf="@+id/loginbusinessBT"
+            app:layout_constraintTop_toBottomOf="@+id/contraseniabusinessET" />
 
-    <EditText
+        <EditText
             android:id="@+id/contraseniabusinessET"
             android:layout_width="250dp"
             android:layout_height="48dp"
             android:layout_marginTop="28dp"
             android:background="@drawable/textviewredondo"
             android:ems="10"
+            android:fontFamily="@font/roboto"
             android:hint="CONTRASEÑA"
-            android:textColor="@color/morado"
             android:inputType="textPassword"
             android:paddingLeft="10dp"
+            android:textColor="@color/morado"
             android:textColorHint="@color/morado"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/businessemailET"/>
+            app:layout_constraintTop_toBottomOf="@+id/businessemailET" />
 
-    <Button
+        <Button
             android:id="@+id/loginbusinessBT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginTop="48dp"
             android:background="@drawable/botonredondo"
+            android:fontFamily="@font/roboto"
             android:text="LOGIN"
             app:layout_constraintEnd_toStartOf="@+id/registerBusinessBT"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contraseniabusinessET"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@+id/contraseniabusinessET" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
