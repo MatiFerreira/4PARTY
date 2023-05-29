@@ -10,9 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd830f40-8832-44e0-8419-d4bbfaf00aca" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/LogInOutUser/Login_activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/LogInOutUser/Login_activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/Fragment/ProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/Fragment/ProfileFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/IntefaceAPP/EditProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/IntefaceAPP/EditProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/IntefaceAPP/HOME_ACTIVITY.java" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/java/com/example/a4party/IntefaceAPP/HOME_ACTIVITY.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/4party/app/src/main/res/layout/activity_edit_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/res/layout/activity_edit_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4party/app/src/main/res/layout/fragment_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/4party/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

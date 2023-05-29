@@ -104,6 +104,7 @@ public class Login_activity extends AppCompatActivity {
 
     private void gohome() {
         Intent i = new Intent(this, HOME_ACTIVITY.class);
+        i.putExtra("mail", et_mail.getText().toString());
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();
