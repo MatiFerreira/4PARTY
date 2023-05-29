@@ -2,9 +2,11 @@ package com.example.a4party.IntefaceAPP;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.SearchView;
 
 import com.example.a4party.R;
@@ -24,7 +26,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
-    private SearchView searchView;
+    private Button botonVolver;
     private FirebaseFirestore db;
     String direccionLocal = "Malaga";
 
@@ -37,7 +39,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Bundle datosEmail = getIntent().getExtras();
         String email = datosEmail.getString("email");
         db = FirebaseFirestore.getInstance();
-
+        botonVolver = findViewById(R.id.botonvolverLista);
+        botonVolver.setOnClickListener(view -> {
+            Intent intent = new Intent(this, HOME_ACTIVITY.class);
+            startActivity(intent);
+            finish();
+        });
         db.collection("Empresarios").document(email).get().addOnSuccessListener(documentSnapshot -> {
             if (documentSnapshot.exists()) {
                 String direccionEstable = documentSnapshot.getString("codigoPostal");
