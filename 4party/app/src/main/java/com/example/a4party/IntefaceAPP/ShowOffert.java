@@ -51,7 +51,7 @@ public class ShowOffert extends AppCompatActivity {
         });
 
         botonAbrirgooglemaps.setOnClickListener(view -> {
-            Intent intent = new Intent(this, MapsActivity.class);
+            Intent intent = new Intent(this, MapsActivity2.class);
             intent.putExtra("email", email);
             startActivity(intent);
         });
