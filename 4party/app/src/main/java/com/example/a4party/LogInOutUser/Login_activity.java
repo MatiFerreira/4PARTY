@@ -84,7 +84,6 @@ public class Login_activity extends AppCompatActivity {
                 if (awesomeValidationmain.validate()) {
                     String mail = et_mail.getText().toString();
                     String pass = et_pass.getText().toString();
-
                     firebaseAuthmain.signInWithEmailAndPassword(mail, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
