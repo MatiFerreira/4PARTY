@@ -64,7 +64,6 @@
         <activity android:name=".LogInOutBusiness.LogInBusiness" />
         <activity android:name=".LogInOutUser.Register_activity" />
         <activity android:name=".LogInOutUser.Login_activity" />
-        <activity android:name=".IntefaceAPP.ShowOffert" />
         <activity
             android:name=".IntefaceAPP.HOME_ACTIVITY"
             android:exported="false" />
