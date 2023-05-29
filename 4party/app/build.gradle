@@ -58,7 +58,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:24.6.0'
 
     implementation 'androidx.navigation:navigation-runtime:2.5.3'
-    implementation 'androidx.databinding:baseLibrary:3.2.0-alpha11'
+
     implementation 'androidx.navigation:navigation-ui:2.5.3'
     implementation 'androidx.navigation:navigation-fragment:2.5.3'
 
