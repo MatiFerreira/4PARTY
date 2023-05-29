@@ -20,6 +20,7 @@ import com.example.a4party.databinding.ActivityMapsBinding;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -28,7 +29,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private ActivityMapsBinding binding;
     private Button botonVolver;
     private FirebaseFirestore db;
-    String direccionLocal = "Malaga";
+    String direccionLocal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +54,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
         /*====================================================================================*/
-        List<Address> direccionlist = null;
+        List<Address> direccionlist = new ArrayList<>();
 
-        if (!direccionLocal.isEmpty() || !direccionlist.equals("")) {
+        if (!direccionLocal.isEmpty()) {
             Geocoder geocoder = new Geocoder((MapsActivity.this));
             try {
                 direccionlist = geocoder.getFromLocationName(direccionLocal, 1);
@@ -64,12 +65,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             Address address = direccionlist.get(0);
             LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(latLng).title("UBICACION ESTABLECIMIENTO"));
+            mMap.addMarker(new MarkerOptions().position(latLng));
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
         }
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        mapFragment.getMapAsync(MapsActivity.this);
         /*====================================================================================*/
     }
 

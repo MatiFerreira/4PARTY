@@ -8,12 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import androidx.core.view.WindowCompat;
-
 import com.example.a4party.LogInOutUser.Login_activity;
 import com.example.a4party.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -22,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.splash_screen);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        FirebaseAuth.getInstance().signOut();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

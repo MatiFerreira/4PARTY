@@ -34,14 +34,8 @@
 
         <activity
             android:name=".IntefaceAPP.MapsActivity"
-            android:exported="true"
-            android:label="@string/title_activity_maps">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".IntefaceAPP.EditProfile"
             android:exported="false" />
@@ -64,6 +58,7 @@
         <activity android:name=".LogInOutBusiness.LogInBusiness" />
         <activity android:name=".LogInOutUser.Register_activity" />
         <activity android:name=".LogInOutUser.Login_activity" />
+        <activity android:name=".IntefaceAPP.ShowOffert" />
         <activity
             android:name=".IntefaceAPP.HOME_ACTIVITY"
             android:exported="false" />
