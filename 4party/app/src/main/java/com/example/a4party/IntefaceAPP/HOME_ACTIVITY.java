@@ -38,8 +38,7 @@ public class HOME_ACTIVITY extends AppCompatActivity {
         db.collection("Usuarios").document(email).get().addOnSuccessListener(documentSnapshot -> {
             if (!documentSnapshot.exists()) {
                 Toast.makeText(this, "USUARIO EMPRESARIO!", Toast.LENGTH_SHORT).show();
-                FirebaseAuth.getInstance().signOut();
-                Intent i = new Intent(this, Login_activity.class);
+                Intent i = new Intent(this, LocalesActivity.class);
                 startActivity(i);
                 finish();
             }
