@@ -125,12 +125,12 @@ public class ProfileFragment extends Fragment {
                 gologin();
             }
         });
-        lqr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goQr();
-            }
-        });
+        //lqr.setOnClickListener(new View.OnClickListener() {
+          //  @Override
+            //public void onClick(View v) {
+              //  goQr();
+           // }
+       // });
         ledit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
