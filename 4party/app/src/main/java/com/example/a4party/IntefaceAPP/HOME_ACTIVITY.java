@@ -33,7 +33,17 @@ public class HOME_ACTIVITY extends AppCompatActivity {
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         navigationView = findViewById(R.id.bottomNavigationView);
         getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, new PartySearchFragment()).commit();
-
+        db = FirebaseFirestore.getInstance();
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        db.collection("Usuarios").document(email).get().addOnSuccessListener(documentSnapshot -> {
+            if (!documentSnapshot.exists()) {
+                Toast.makeText(this, "USUARIO EMPRESARIO!", Toast.LENGTH_SHORT).show();
+                FirebaseAuth.getInstance().signOut();
+                Intent i = new Intent(this, Login_activity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         // Obtén el intent y verifica si contiene el extra "fragment"
         Intent intent = getIntent();
