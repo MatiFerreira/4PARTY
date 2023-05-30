@@ -17,8 +17,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.4party">
-
-
+        <activity
+            android:name=".IntefaceAPP.Condiciones"
+            android:exported="false" />
+        <activity
+            android:name=".IntefaceAPP.CarritoEmpty"
+            android:exported="false" />
+        <activity
+            android:name=".IntefaceAPP.CarritoActivity"
+            android:exported="false" />
         <activity
             android:name=".IntefaceAPP.Qr"
             android:exported="false" />

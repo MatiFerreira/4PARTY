@@ -33,6 +33,8 @@ public class HOME_ACTIVITY extends AppCompatActivity {
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         navigationView = findViewById(R.id.bottomNavigationView);
         getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, new PartySearchFragment()).commit();
+
+
         // Obtén el intent y verifica si contiene el extra "fragment"
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra("fragment")) {
@@ -44,7 +46,8 @@ public class HOME_ACTIVITY extends AppCompatActivity {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.frameLayout, carritoFragment);
                 fragmentTransaction.commit();
-            }if (fragmentName.equals("profile")) {
+            }
+            if (fragmentName.equals("profile")) {
                 // Reemplaza el fragmento actual con el fragmento "Carrito"
                 Fragment carritoFragment = new ProfileFragment();
                 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -56,9 +59,6 @@ public class HOME_ACTIVITY extends AppCompatActivity {
 
         navigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.orderitem:
-                    ReemplazadorFragments(new OrderFragments());
-                    break;
                 case R.id.profileitem:
                     ReemplazadorFragments(new ProfileFragment());
                     break;

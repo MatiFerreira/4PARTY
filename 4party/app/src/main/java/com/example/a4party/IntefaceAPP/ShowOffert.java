@@ -6,7 +6,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.a4party.Fragment.OrderFragments;
 import com.example.a4party.Fragment.PartySearchFragment;
 import com.example.a4party.R;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -15,7 +19,7 @@ public class ShowOffert extends AppCompatActivity {
 
     private TextView descripcioEstable, precioEstable, nameLocal;
     private FirebaseFirestore db;
-    private Button botonQR, botonCancelar, botonAbrirgooglemaps;
+    private Button botonComprarCesta, botonCancelar, botonAbrirgooglemaps;
 
     private String email;
 
@@ -27,7 +31,7 @@ public class ShowOffert extends AppCompatActivity {
         descripcioEstable = findViewById(R.id.textView11);
         precioEstable = findViewById(R.id.preciotxtv);
         nameLocal = findViewById(R.id.namLocal);
-        botonQR = findViewById(R.id.botonqr);
+        botonComprarCesta = findViewById(R.id.botonqr);
         botonCancelar = findViewById(R.id.botoncancel);
         botonAbrirgooglemaps = findViewById(R.id.botongooglemaps);
         Bundle datosEmail = getIntent().getExtras();
@@ -60,24 +64,19 @@ public class ShowOffert extends AppCompatActivity {
         });
 
         botonCancelar.setOnClickListener(view -> {
-            Intent i = new Intent(this, PartySearchFragment.class);
-            startActivity(i);
             finish();
         });
 
-        botonQR.setOnClickListener(view -> {
-            goCarrito();
+        botonComprarCesta.setOnClickListener(view -> {
+            Intent intent = new Intent(this, CarritoActivity.class);
+            intent.putExtra("email", email);
+            startActivity(intent);
+            finish();
         });
 
 
+    }
 
-    }
-    private void goCarrito() {
-        Intent intent = new Intent(this, HOME_ACTIVITY.class);
-        intent.putExtra("fragment", "carrito");
-        intent.putExtra("hola", "hola");// Envía un identificador del fragmento "carrito"
-        startActivity(intent);
-    }
 
     public String getEmail() {
         return email;

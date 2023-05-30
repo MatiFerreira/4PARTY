@@ -5,10 +5,7 @@
             android:title="4PARTY"
             android:id="@+id/partyitem"
             android:icon="@drawable/iconodiscoteca"/>
-    <item
-            android:title="ORDER"
-            android:id="@+id/orderitem"
-            android:icon="@drawable/iconocesta"/>
+
     <item
             android:title="PROFILE"
             android:id="@+id/profileitem"

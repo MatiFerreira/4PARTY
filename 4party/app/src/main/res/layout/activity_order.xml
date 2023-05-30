@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grismedianoche"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".IntefaceAPP.CarritoActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,12 +17,28 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/carritodesign" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="50dp"
                 android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,7 +72,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/nombrelocal" />
 
                     <TextView
-                        android:id="@+id/descrpcionproducto"
+                        android:id="@+id/decripcionCarrito"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -78,10 +95,10 @@
                         android:textColor="@color/morado"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/descrpcionproducto" />
+                        app:layout_constraintTop_toBottomOf="@+id/decripcionCarrito" />
 
                     <TextView
-                        android:id="@+id/preciotxttotal"
+                        android:id="@+id/precioCarrito"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -91,7 +108,7 @@
                         android:textColor="@color/teal_200"
                         android:textSize="18sp"
                         app:layout_constraintStart_toEndOf="@+id/precio"
-                        app:layout_constraintTop_toBottomOf="@+id/descrpcionproducto" />
+                        app:layout_constraintTop_toBottomOf="@+id/decripcionCarrito" />
 
                     <TextView
                         android:id="@+id/textView7"
@@ -103,8 +120,8 @@
                         android:textColor="@color/teal_200"
                         android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/preciotxttotal"
-                        app:layout_constraintTop_toBottomOf="@+id/descrpcionproducto" />
+                        app:layout_constraintStart_toEndOf="@+id/precioCarrito"
+                        app:layout_constraintTop_toBottomOf="@+id/decripcionCarrito" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
 

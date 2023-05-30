@@ -89,7 +89,6 @@ public class LogInBusiness extends AppCompatActivity {
                     db = FirebaseFirestore.getInstance();
                     db.collection("Empresarios").document(email).get().addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
-                            ;
                             firebaseauthor.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
                                 /*while (!task.isSuccessful()) {*/
                                 if (task.isSuccessful()) {

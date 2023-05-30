@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.a4party.IntefaceAPP.CarritoActivity;
 import com.example.a4party.IntefaceAPP.EditProfile;
 import com.example.a4party.IntefaceAPP.HOME_ACTIVITY;
 import com.example.a4party.IntefaceAPP.Qr;
@@ -38,7 +39,7 @@ public class ProfileFragment extends Fragment {
     FirebaseUser currentUser;
     TextView viewemail;
     ProgressDialog progressDialog;
-    LinearLayout lcarrito,lqr,ledit;
+    LinearLayout lcarrito, lqr, ledit;
     String nombre;
 
     @Override
@@ -48,8 +49,8 @@ public class ProfileFragment extends Fragment {
         View vista = inflater.inflate(R.layout.fragment_profile, container, false);
         botoncerrarsesion = vista.findViewById(R.id.logoutbutton_profileact);
         ledit = vista.findViewById(R.id.linearedit);
-        lcarrito =vista.findViewById(R.id.linearcarrito);
-        lqr =vista.findViewById(R.id.linearqr);
+        lcarrito = vista.findViewById(R.id.linearcarrito);
+        lqr = vista.findViewById(R.id.linearqr);
 
         // Inicializar ProgressDialog
         progressDialog = new ProgressDialog(getActivity());
@@ -152,22 +153,22 @@ public class ProfileFragment extends Fragment {
         startActivity(i);
     }
 
-        private void goEditprofile() {
-            Intent intent = new Intent(getActivity(), EditProfile.class);
-            intent.putExtra("nombre", nombre);
-            startActivity(intent);
-        }
+    private void goEditprofile() {
+        Intent intent = new Intent(getActivity(), EditProfile.class);
+        intent.putExtra("nombre", nombre);
+        startActivity(intent);
+    }
 
     private void goQr() {
         Intent intent = new Intent(getActivity(), Qr.class);
         startActivity(intent);
     }
 
-        private void goCarrito() {
-            Intent intent = new Intent(getActivity(), HOME_ACTIVITY.class);
-            intent.putExtra("fragment", "carrito"); // Envía un identificador del fragmento "carrito"
-            startActivity(intent);
-       }
+    private void goCarrito() {
+        Intent intent = new Intent(getActivity(), CarritoActivity.class);
+        startActivity(intent);
+    }
+
     private void ReemplazadorFragments(Fragment fragmentParams) {
         FragmentManager fragmentManager = getChildFragmentManager();  // Utiliza getChildFragmentManager() en lugar de getSupportFragmentManager()
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
