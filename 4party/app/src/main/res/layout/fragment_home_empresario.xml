@@ -77,6 +77,7 @@
                     android:fontFamily="@font/roboto"
                     android:text="IMAGEN LOCAL"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/logoutprofileempresa"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -90,6 +91,7 @@
                     android:text="CREAR OFERTAS"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/logoutprofileempresa"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
@@ -101,9 +103,9 @@
                     android:text="CERRAR SESION"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/btncrearoferta"
-                    app:layout_constraintHorizontal_bias="0.566"
                     app:layout_constraintStart_toEndOf="@+id/addimagenlocal"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
