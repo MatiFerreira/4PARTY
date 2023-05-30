@@ -38,7 +38,7 @@ public class OrderFragments extends Fragment {
 
 
         db = FirebaseFirestore.getInstance();
-        db.collection("Productos").document(email).get().addOnSuccessListener(documentSnapshot -> {
+        db.collection("Productos").document("email").get().addOnSuccessListener(documentSnapshot -> {
             if (documentSnapshot.exists()) {
                 String precio = documentSnapshot.getString("precio");
                 String decription = documentSnapshot.getString("descripcion");

@@ -141,7 +141,7 @@
                                 android:background="@drawable/grey_background"
                                 android:elevation="5dp"
                                 android:orientation="vertical"
-                                android:id="@+id/linearhcompras">
+                                android:id="@+id/linearqr">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:layout_width="60dp"
@@ -151,14 +151,14 @@
                                     android:background="@drawable/circle_background">
 
                                     <ImageView
-                                        android:id="@+id/profilecompraimage"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
+                                        android:id="@+id/profileqrimage"
+                                        android:layout_width="42dp"
+                                        android:layout_height="39dp"
                                         app:layout_constraintBottom_toBottomOf="parent"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toTopOf="parent"
-                                        app:srcCompat="@drawable/wallet" />
+                                        app:srcCompat="@drawable/baseline_qr_code_24" />
 
                                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -167,7 +167,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="8dp"
-                                    android:text="Historial de Compras"
+                                    android:text="Qr"
                                     android:textAlignment="center"
                                     android:textColor="#000000"
                                     android:textSize="13sp"

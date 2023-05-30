@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.a4party.IntefaceAPP.EditProfile;
 import com.example.a4party.IntefaceAPP.HOME_ACTIVITY;
+import com.example.a4party.IntefaceAPP.Qr;
 import com.example.a4party.LogInOutUser.Login_activity;
 import com.example.a4party.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,7 +38,7 @@ public class ProfileFragment extends Fragment {
     FirebaseUser currentUser;
     TextView viewemail;
     ProgressDialog progressDialog;
-    LinearLayout lcarrito,lhcompras,ledit;
+    LinearLayout lcarrito,lqr,ledit;
     String nombre;
 
     @Override
@@ -48,7 +49,7 @@ public class ProfileFragment extends Fragment {
         botoncerrarsesion = vista.findViewById(R.id.logoutbutton_profileact);
         ledit = vista.findViewById(R.id.linearedit);
         lcarrito =vista.findViewById(R.id.linearcarrito);
-        lhcompras =vista.findViewById(R.id.linearhcompras);
+        lqr =vista.findViewById(R.id.linearqr);
 
         // Inicializar ProgressDialog
         progressDialog = new ProgressDialog(getActivity());
@@ -123,7 +124,12 @@ public class ProfileFragment extends Fragment {
                 gologin();
             }
         });
-
+        lqr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goQr();
+            }
+        });
         ledit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,6 +157,11 @@ public class ProfileFragment extends Fragment {
             intent.putExtra("nombre", nombre);
             startActivity(intent);
         }
+
+    private void goQr() {
+        Intent intent = new Intent(getActivity(), Qr.class);
+        startActivity(intent);
+    }
 
         private void goCarrito() {
             Intent intent = new Intent(getActivity(), HOME_ACTIVITY.class);
