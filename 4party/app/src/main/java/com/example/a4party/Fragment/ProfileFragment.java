@@ -41,6 +41,7 @@ public class ProfileFragment extends Fragment {
     ProgressDialog progressDialog;
     LinearLayout lcarrito, lqr, ledit;
     String nombre;
+    String decription="";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -125,12 +126,12 @@ public class ProfileFragment extends Fragment {
                 gologin();
             }
         });
-        //lqr.setOnClickListener(new View.OnClickListener() {
-          //  @Override
-            //public void onClick(View v) {
-              //  goQr();
-           // }
-       // });
+        lqr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goQr();
+            }
+        });
         ledit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -160,8 +161,15 @@ public class ProfileFragment extends Fragment {
     }
 
     private void goQr() {
-        Intent intent = new Intent(getActivity(), Qr.class);
-        startActivity(intent);
+        if (decription.equals("")){
+            Toast.makeText(getActivity(), "Compra no disponible", Toast.LENGTH_SHORT).show();
+            goCarrito();
+
+        }else {
+            Intent intent = new Intent(getActivity(), Qr.class);
+            intent.putExtra("valorqr",decription);
+            startActivity(intent);
+        }
     }
 
     private void goCarrito() {
