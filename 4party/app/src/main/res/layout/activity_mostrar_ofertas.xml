@@ -141,7 +141,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/botonredondo"
                         android:fontFamily="@font/robotobold"
-                        android:text="GENERAR QR"
+                        android:text="COMPRAR"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/botoncancel"
                         app:layout_constraintStart_toStartOf="parent"

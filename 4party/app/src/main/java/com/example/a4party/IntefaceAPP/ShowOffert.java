@@ -1,11 +1,11 @@
 package com.example.a4party.IntefaceAPP;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.a4party.Fragment.PartySearchFragment;
 import com.example.a4party.R;
@@ -16,6 +16,9 @@ public class ShowOffert extends AppCompatActivity {
     private TextView descripcioEstable, precioEstable, nameLocal;
     private FirebaseFirestore db;
     private Button botonQR, botonCancelar, botonAbrirgooglemaps;
+
+    private String email;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,7 @@ public class ShowOffert extends AppCompatActivity {
         botonCancelar = findViewById(R.id.botoncancel);
         botonAbrirgooglemaps = findViewById(R.id.botongooglemaps);
         Bundle datosEmail = getIntent().getExtras();
-        String email = datosEmail.getString("email");
+        email = datosEmail.getString("email");
         db = FirebaseFirestore.getInstance();
         db.collection("Productos").document(email).get().addOnSuccessListener(documentSnapshot -> {
             if (documentSnapshot.exists()) {
@@ -62,5 +65,21 @@ public class ShowOffert extends AppCompatActivity {
             finish();
         });
 
+        botonQR.setOnClickListener(view -> {
+            goCarrito();
+        });
+
+
+
+    }
+    private void goCarrito() {
+        Intent intent = new Intent(this, HOME_ACTIVITY.class);
+        intent.putExtra("fragment", "carrito");
+        intent.putExtra("hola", "hola");// Envía un identificador del fragmento "carrito"
+        startActivity(intent);
+    }
+
+    public String getEmail() {
+        return email;
     }
 }
