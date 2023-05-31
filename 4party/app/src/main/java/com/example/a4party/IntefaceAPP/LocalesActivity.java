@@ -11,6 +11,7 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -39,6 +40,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -46,7 +49,7 @@ import java.io.File;
 
 public class LocalesActivity extends AppCompatActivity {
     private TextView textViewTitulo;
-    private Button botonOferta, botonModificarDatos, botonImagen, botonCerrarSesion, botonEliminarcuenta;
+    private Button botonOferta, scanner, botonImagen, botonCerrarSesion;
     private ImageView imageView;
     private CRUD crud;
     private Uri urimage;
@@ -54,6 +57,7 @@ public class LocalesActivity extends AppCompatActivity {
     private String emailuser;
     private FirebaseUser user;
     private FirebaseFirestore db;
+    boolean press=false;
 
     @Override
 
@@ -69,6 +73,7 @@ public class LocalesActivity extends AppCompatActivity {
         imageView = findViewById(R.id.vistalocalimg);
         botonImagen = findViewById(R.id.addimagenlocal);
         botonCerrarSesion = findViewById(R.id.logoutprofileempresa);
+        scanner = findViewById(R.id.scanqr);
         LogOut();
         //EliminarCuenta(emailuser, user);
         addImg();
@@ -79,6 +84,22 @@ public class LocalesActivity extends AppCompatActivity {
             String imgen = documentSnapshot.getString("urlimagen");
             Picasso.get().load(imgen).fit().transform(new RoundedTransformation(50, 10)).centerCrop().into(imageView);
         });
+        scanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                press = true;
+                IntentIntegrator integrator = new IntentIntegrator(LocalesActivity.this);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
+                integrator.setPrompt("Lector de QRs");
+                integrator.setBeepEnabled(true);
+                integrator.setBarcodeImageEnabled(true);
+
+                // Establecer la orientación vertical
+                integrator.setOrientationLocked(true);
+                integrator.initiateScan();
+            }
+        });
+
     }
 
 
@@ -105,6 +126,7 @@ public class LocalesActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == IMG && resultCode == RESULT_OK) {
             Toast.makeText(this, "SUBIENDO...", Toast.LENGTH_SHORT).show();
@@ -129,6 +151,19 @@ public class LocalesActivity extends AppCompatActivity {
                     });
                 }
             });
+        }
+
+        if (result!=null){
+            if(result.getContents()==null){
+                Toast.makeText(this, "Lectura cancelada", Toast.LENGTH_LONG).show();
+            }else {
+                Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, MostrarValores.class);
+                intent.putExtra("valorqr",result.getContents());
+                startActivity(intent);
+                finish();
+            }
+
         }
     }
 

@@ -80,14 +80,14 @@
                         app:layout_constraintTop_toBottomOf="@+id/editprofilename" />
 
                     <LinearLayout
-                        android:gravity="center"
-                        android:layout_width="360dp"
-                        android:layout_height="379dp"
+                        android:layout_width="336dp"
+                        android:layout_height="361dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="30dp"
                         android:layout_marginEnd="24dp"
                         android:layout_marginBottom="24dp"
                         android:background="@drawable/white_background"
+                        android:gravity="center"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
