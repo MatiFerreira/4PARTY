@@ -25,13 +25,11 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
     private FirebaseFirestore db;
     private GoogleMap mMap;
     private ActivityMaps2Binding binding;
-    private String email;
     SupportMapFragment mapFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityMaps2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         db = FirebaseFirestore.getInstance();

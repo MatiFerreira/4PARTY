@@ -57,7 +57,7 @@ public class LocalesActivity extends AppCompatActivity {
     private String emailuser;
     private FirebaseUser user;
     private FirebaseFirestore db;
-    boolean press=false;
+    boolean press = false;
 
     @Override
 
@@ -126,7 +126,7 @@ public class LocalesActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == IMG && resultCode == RESULT_OK) {
             Toast.makeText(this, "SUBIENDO...", Toast.LENGTH_SHORT).show();
@@ -153,13 +153,13 @@ public class LocalesActivity extends AppCompatActivity {
             });
         }
 
-        if (result!=null){
-            if(result.getContents()==null){
+        if (result != null) {
+            if (result.getContents() == null) {
                 Toast.makeText(this, "Lectura cancelada", Toast.LENGTH_LONG).show();
-            }else {
+            } else {
                 Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, MostrarValores.class);
-                intent.putExtra("valorqr",result.getContents());
+                intent.putExtra("valorqr", result.getContents());
                 startActivity(intent);
                 finish();
             }
@@ -170,9 +170,7 @@ public class LocalesActivity extends AppCompatActivity {
     private void crearOfertas() {
         botonOferta.setOnClickListener(view -> {
             Intent intent = new Intent(LocalesActivity.this, CrearOfeta.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-            finish();
         });
     }
 

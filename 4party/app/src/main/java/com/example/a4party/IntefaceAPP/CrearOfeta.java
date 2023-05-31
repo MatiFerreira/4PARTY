@@ -55,6 +55,7 @@ public class CrearOfeta extends AppCompatActivity {
                 getDescripcion = descripcion.getText().toString();
                 getPrecio = precio.getText().toString();
                 crud.CreateProductos(emailuser, getPrecio, getDescripcion);
+                finish();
             }
         });
     }
