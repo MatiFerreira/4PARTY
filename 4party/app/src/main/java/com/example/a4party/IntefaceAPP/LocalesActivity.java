@@ -29,6 +29,7 @@ import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
 import com.example.a4party.BBDD.CRUD;
+import com.example.a4party.CaptureActivityPortrait;
 import com.example.a4party.LogInOutBusiness.LogInBusiness;
 import com.example.a4party.R;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -93,9 +94,9 @@ public class LocalesActivity extends AppCompatActivity {
                 integrator.setPrompt("Lector de QRs");
                 integrator.setBeepEnabled(true);
                 integrator.setBarcodeImageEnabled(true);
-
                 // Establecer la orientación vertical
-                integrator.setOrientationLocked(true);
+                integrator.setOrientationLocked(false);
+                integrator.setCaptureActivity(CaptureActivityPortrait.class);
                 integrator.initiateScan();
             }
         });

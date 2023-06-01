@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#AD3C3B3B"
+    android:background="@drawable/background_gradient"
     tools:context=".IntefaceAPP.EditProfile">
 
 
@@ -36,7 +36,7 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="340dp"
+                        android:layout_height="300dp"
                         android:background="@drawable/top_background"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"

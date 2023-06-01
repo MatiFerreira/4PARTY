@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grismedianoche"
+    android:background="@drawable/background_gradient"
     android:orientation="vertical">
 
     <LinearLayout
@@ -19,7 +19,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="135dp">
 
                 <TextView
                     android:id="@+id/textView4"
@@ -27,8 +27,9 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:text="BIENVENIDO!"
-                    android:textColor="@color/morado"
+                    android:textColor="@color/teal_200"
                     android:textSize="25dp"
+                    android:gravity="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +39,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="70dp"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:orientation="vertical">
@@ -52,8 +54,10 @@
                     android:layout_height="match_parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
@@ -66,7 +70,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="79dp">
 
                 <Button
                     android:id="@+id/addimagenlocal"
@@ -81,7 +85,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/btncrearoferta"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.716" />
 
                 <Button
                     android:id="@+id/btncrearoferta"
@@ -95,7 +99,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/addimagenlocal"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.716" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -109,7 +113,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="120dp">
 
                 <Button
                     android:id="@+id/logoutprofileempresa"
@@ -123,7 +127,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/scanqr"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.222" />
 
                 <Button
                     android:id="@+id/scanqr"
@@ -136,7 +141,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/logoutprofileempresa"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.222" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="230dp"
     android:layout_margin="5dp"
-    android:background="@color/grismedianoche"
+    android:background="@drawable/background_gradient"
     android:clickable="true"
     android:focusable="true"
     card_view:cardCornerRadius="10dp">

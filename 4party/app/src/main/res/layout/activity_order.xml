@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grismedianoche"
+    android:background="@drawable/background_gradient"
     android:orientation="vertical"
     tools:context=".IntefaceAPP.CarritoActivity">
 
@@ -77,6 +77,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="4dp"
+                        android:gravity="center"
                         android:fontFamily="@font/roboto"
                         android:text="AQUI VA LA DESCRIPCION DEL PRODUCTO A OFERTAR"
                         android:textColor="@color/teal_200"
@@ -179,6 +180,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="11dp"
                         android:fontFamily="@font/roboto"
+                        android:gravity="center"
                         android:text="Al utilizar nuestra aplicación y realizar una compra, usted acepta automáticamente las condiciones establecidas en nuestro acuerdo de términos y condiciones. Estas condiciones son fundamentales para garantizar una experiencia segura y satisfactoria para todos nuestros usuarios."
                         android:textColor="@color/morado"
                         android:textSize="10sp"

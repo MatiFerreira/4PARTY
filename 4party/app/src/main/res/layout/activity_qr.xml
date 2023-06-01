@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_qr_scene"
-    tools:context=".IntefaceAPP.Qr">
+    tools:context=".IntefaceAPP.Qr"
+    android:background="@drawable/background_gradient">
 
 
   <ImageView
