@@ -19,8 +19,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -113,7 +112,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Nombre"
-                                android:textColor="#182693"
+                                android:textColor="@color/morado"
                                 android:textSize="18sp" />
 
                             <EditText
@@ -150,7 +149,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Apellidos"
-                                android:textColor="#182693"
+                                android:textColor="@color/morado"
                                 android:textSize="18sp" />
 
                             <EditText
@@ -187,7 +186,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Dni"
-                                android:textColor="#182693"
+                                android:textColor="@color/morado"
                                 android:textSize="18sp" />
 
                             <EditText
@@ -218,9 +217,9 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
-                android:layout_marginTop="50dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
                 android:orientation="horizontal">
 
                 <Button
@@ -229,7 +228,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:layout_weight="1"
-                    android:background="@drawable/background_button"
+                    android:background="@drawable/botonredondo"
                     android:text="Back"
                     android:textColor="#ffffff"
                     android:textSize="18sp"
@@ -241,7 +240,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
-                    android:background="@drawable/background_button"
+                    android:background="@drawable/botonredondo"
                     android:text="Upload Changes"
                     android:textColor="#ffffff"
                     android:textSize="18sp"

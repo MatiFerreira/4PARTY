@@ -224,8 +224,8 @@
                                 android:layout_width="136dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="............... "
                                 android:inputType="textPassword"
+                                android:text="............... "
                                 android:textAlignment="viewEnd"
                                 android:textColor="#5B5B5B"
                                 android:textSize="18sp" />
@@ -288,7 +288,7 @@
                 android:id="@+id/designbutton"
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
-                android:background="@drawable/background_button"
+                android:background="@drawable/botonredondo"
                 android:text="Upload Changes"
                 android:textColor="#ffffff"
                 android:textSize="18sp"
