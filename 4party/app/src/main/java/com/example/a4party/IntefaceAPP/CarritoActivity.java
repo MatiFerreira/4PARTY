@@ -18,6 +18,7 @@ public class CarritoActivity extends AppCompatActivity {
     private TextView descripciontxt, preciotxt, titulotxt;
     private Button botonback, condicion, compra;
     String decription="";
+    String precio="";
 
     @Override
 
@@ -36,7 +37,7 @@ public class CarritoActivity extends AppCompatActivity {
             email = datosEmail.getString("email");
             db.collection("Productos").document(email).get().addOnSuccessListener(documentSnapshot -> {
                 if (documentSnapshot.exists()) {
-                    String precio = documentSnapshot.getString("precio");
+                    precio = documentSnapshot.getString("precio");
                     decription = documentSnapshot.getString("descripcion");
                     descripciontxt.setText(decription);
                     preciotxt.setText(precio);
@@ -83,6 +84,7 @@ public class CarritoActivity extends AppCompatActivity {
         }else {
             Intent intent = new Intent(this, Qr.class);
             intent.putExtra("valorqr",decription);
+            intent.putExtra("valorprecio",precio);
             startActivity(intent);
         }
     }
