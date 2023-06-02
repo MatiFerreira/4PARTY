@@ -110,9 +110,9 @@
                 <Button
                     android:id="@+id/scanqr"
                     android:layout_width="50dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginEnd="32dp"
-                    android:background="@drawable/baseline_qr_code_24"
+                    android:background="@drawable/blackqr"
                     android:fontFamily="@font/roboto"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/logoutprofileempresa"
