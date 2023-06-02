@@ -86,7 +86,7 @@
             android:textColor="@color/morado"
             android:textColorHint="@color/morado"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/businessemailET" />
 
