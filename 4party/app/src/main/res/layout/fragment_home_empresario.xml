@@ -26,10 +26,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
+                    android:gravity="center"
                     android:text="BIENVENIDO!"
                     android:textColor="@color/teal_200"
                     android:textSize="25dp"
-                    android:gravity="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -39,9 +39,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="70dp"
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:layout_marginTop="70dp"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -74,78 +74,54 @@
 
                 <Button
                     android:id="@+id/addimagenlocal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/botonredondo"
-                    android:fontFamily="@font/roboto"
-                    android:text="IMAGEN LOCAL"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="32dp"
+                    android:background="@drawable/ic_menu_gallery"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/btncrearoferta"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.716" />
+                    app:layout_constraintVertical_bias="0.724" />
 
                 <Button
                     android:id="@+id/btncrearoferta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="50dp"
-                    android:background="@drawable/botonredondo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="32dp"
+                    android:background="@drawable/addbtn"
                     android:fontFamily="@font/roboto"
-                    android:text="CREAR OFERTAS"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/addimagenlocal"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.716" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="120dp">
+                    app:layout_constraintVertical_bias="0.724" />
 
                 <Button
                     android:id="@+id/logoutprofileempresa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/botonredondo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/iconologout"
                     android:fontFamily="@font/roboto"
-                    android:text="CERRAR SESION"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/scanqr"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.222" />
+                    app:layout_constraintVertical_bias="0.724" />
 
                 <Button
                     android:id="@+id/scanqr"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="50dp"
-                    android:background="@drawable/botonredondo"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/baseline_qr_code_24"
                     android:fontFamily="@font/roboto"
-                    android:text=" ESCANEAR QR "
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/logoutprofileempresa"
+                    app:layout_constraintEnd_toStartOf="@+id/logoutprofileempresa"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.222" />
+                    app:layout_constraintVertical_bias="0.677" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>
