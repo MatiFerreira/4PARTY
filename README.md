@@ -17,3 +17,9 @@ con alguna discapacidad, etc.
 Incluso una forma para organizar eventos, como la reventa de entradas (por motivos
 que el usuario no pueda asistir), o para conocer gente que pueda tener los mismos
 gustos.
+Hemos llevado a cabo este proyecto debido a que muchas veces puede hacerse tedioso
+el tener que esperar colas, las subidas de precios, o incluso a veces no saber a donde
+poder ir a tomar algo.
+También destacar que nos gusta este tipo de ocio, por eso queríamos aportar algo para
+que personas que le gusten este tipo de actividades puedan tener un abanico más grande
+a la hora de elegir.
