@@ -23,3 +23,6 @@ poder ir a tomar algo.
 También destacar que nos gusta este tipo de ocio, por eso queríamos aportar algo para
 que personas que le gusten este tipo de actividades puedan tener un abanico más grande
 a la hora de elegir.
+
+
+PROXIMAMENTE MIGRACION DE CODIGO JAVA A CODIGO KOTLIN.
